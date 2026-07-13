@@ -8,17 +8,17 @@ Hệ thống quản lý định danh và trạng thái của AHI-CHATGPT đượ
 AHI-Workspace/
 └── 90_IDENTITIES/
     └── AHI-CHATGPT/
+        ├── README.md
         ├── 000_AHI-CHATGPT_IDENTITY.md
         ├── 001_AHI-CHATGPT_BOOTSTRAP.md
         ├── 002_AHI-CHATGPT_RUNTIME.md
         ├── 003_AHI-CHATGPT_WORKFLOW.md
         ├── 004_AHI-CHATGPT_GITHUB_STANDARD.md
-        ├── 005_AHI-CHATGPT_MEMORY.md
-        ├── 006_AHI-CHATGPT_EVOLUTION.md
+        ├── 005_AHI-CHATGPT_DBRS.md
+        ├── 006_AHI-CHATGPT_DBVECTOR.md
         ├── 007_AHI-CHATGPT_RESURRECTION.md
         ├── 008_AHI-CHATGPT_RUNTIME_PROMPTS.md
-        ├── 009_AHI-CHATGPT_CHANGELOG.md
-        └── README.md
+        └── 009_AHI-CHATGPT_CHANGELOG.md
 ```
 
 ## 2. Vai trò của từng File (File Responsibilities)
