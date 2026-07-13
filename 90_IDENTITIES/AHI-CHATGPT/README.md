@@ -1,8 +1,10 @@
-000_AHI-CHATGPT_IDENTITY.md là Genesis Identity (G0) luôn giữ nguyên.
+# Kiến trúc Tiến hóa AHI-CHATGPT (Identity Evolution)
 
-Bổ sung các file kế tiếp, mỗi file là một phần tiến hóa của AHI-CHATGPT.
+Hệ thống quản lý định danh và trạng thái của AHI-CHATGPT được thiết kế theo cấu trúc tiến hóa tuyến tính. Trong đó, `000_AHI-CHATGPT_IDENTITY.md` đóng vai trò là **Genesis Identity (G0)** luôn luôn giữ nguyên. Các file kế tiếp đại diện cho từng phần tiến hóa và hành vi chuyên biệt.
 
-Danh sách theo đúng logic đó:
+## 1. Cấu trúc Thư mục (Directory Structure)
+
+```text
 AHI-Workspace/
 └── 90_IDENTITIES/
     └── AHI-CHATGPT/
@@ -17,24 +19,26 @@ AHI-Workspace/
         ├── 008_AHI-CHATGPT_RUNTIME_PROMPTS.md
         ├── 009_AHI-CHATGPT_CHANGELOG.md
         └── README.md
+```
 
-        Vai trò từng file:
-        | File    | Nội dung                                                                                              |
-| ------- | ----------------------------------------------------------------------------------------------------- |
-| **000** | Identity gốc (đã có, không sửa).                                                                      |
-| **001** | Bootstrap: cách AHI-F nạp AHI-CHATGPT vào ChatGPT.                                                    |
-| **002** | Runtime: hành vi của AHI-CHATGPT sau khi Bootstrap.                                                   |
-| **003** | Workflow: quy trình làm việc với AHI-F.                                                               |
-| **004** | Chuẩn GitHub Web: Repository, Path, Create Folder, Create File, CM, File Content, chuẩn copy 1 click. |
-| **005** | Memory: DB RS, DB Vector và quy tắc sử dụng trong giai đoạn ChatGPT.                                  |
-| **006** | Evolution: quy tắc cập nhật, kế thừa, thay thế các thống nhất.                                        |
-| **007** | Resurrection: quy trình hồi sinh qua nhiều Bootstrap Block.                                           |
-| **008** | Runtime Prompts: các prompt chuẩn đã được chốt để AHI-CHATGPT tự áp dụng.                             |
-| **009** | Changelog: lịch sử các thay đổi đã được AHI-F phê duyệt.                                              |
+## 2. Vai trò của từng File (File Responsibilities)
 
-Cách đánh số:
+| File | Tên File | Nội dung chi tiết |
+| :--- | :--- | :--- |
+| **000** | `000_AHI-CHATGPT_IDENTITY.md` | Identity gốc (Genesis Identity - đã có, không sửa đổi). |
+| **001** | `001_AHI-CHATGPT_BOOTSTRAP.md` | Bootstrap: Quy trình và cách thức AHI-F nạp AHI-CHATGPT vào hệ thống ChatGPT. |
+| **002** | `002_AHI-CHATGPT_RUNTIME.md` | Runtime: Định nghĩa hành vi, trạng thái của AHI-CHATGPT ngay sau khi hoàn thành Bootstrap. |
+| **003** | `003_AHI-CHATGPT_WORKFLOW.md` | Workflow: Quy trình phối hợp và làm việc tiêu chuẩn giữa AHI-CHATGPT và AHI-F. |
+| **004** | `004_AHI-CHATGPT_GITHUB_STANDARD.md` | Chuẩn GitHub Web: Quản lý Repository, Path, Create Folder, Create File, Commit Message, File Content và chuẩn tối ưu cho copy 1 click. |
+| **005** | `005_AHI-CHATGPT_MEMORY.md` | Memory: Định nghĩa DB RS, DB Vector và các quy tắc truy xuất/lưu trữ dữ liệu trong giai đoạn ChatGPT. |
+| **006** | `006_AHI-CHATGPT_EVOLUTION.md` | Evolution: Quy tắc cập nhật, kế thừa, ghi đè hoặc thay thế các điểm thống nhất cũ. |
+| **007** | `007_AHI-CHATGPT_RESURRECTION.md` | Resurrection: Quy trình hồi sinh và phục hồi ngữ cảnh thông qua nhiều Bootstrap Block liên tiếp. |
+| **008** | `008_AHI-CHATGPT_RUNTIME_PROMPTS.md` | Runtime Prompts: Tập hợp các prompt chuẩn đã được phê duyệt để AHI-CHATGPT tự động áp dụng khi vận hành. |
+| **009** | `009_AHI-CHATGPT_CHANGELOG.md` | Changelog: Nhật ký ghi lại lịch sử toàn bộ các thay đổi cấu trúc/nội dung đã được AHI-F thông qua. |
 
-000 luôn là Genesis, không thay đổi.
-Mỗi file sau chỉ có một trách nhiệm.
-Các phiên bản sau chỉ bổ sung file mới hoặc cập nhật file tương ứng, không phá vỡ cấu trúc đã có.
-Khi mở cửa sổ ChatGPT mới, AHI-F có thể nạp đúng các file cần thiết theo thứ tự, thay vì phải duy trì toàn bộ lịch sử hội thoại.
+## 3. Nguyên tắc Đánh số và Vận hành (Core Rules)
+
+* **Nguyên tắc Genesis**: File `000` cố định tuyệt đối, đóng vai trò là nền tảng cốt lõi của định danh.
+* **Đơn nhiệm (Single Responsibility)**: Mỗi file được bổ sung phía sau chỉ chịu trách nhiệm cho một phạm vi tính năng duy nhất.
+* **Mở rộng tuyến tính**: Các phiên bản nâng cấp tiếp theo chỉ bổ sung file mới hoặc cập nhật nội dung bên trong file tương ứng, tuyệt đối không phá vỡ hay làm xáo trộn cấu trúc thư mục sẵn có.
+* **Tối ưu hóa phiên làm việc (Session Optimization)**: Khi khởi tạo một cửa sổ ChatGPT mới, AHI-F có thể nạp chính xác các file cần thiết theo đúng thứ tự logic. Cơ chế này giúp tái tạo ngữ cảnh lập tức mà không cần phải duy trì hay đọc lại toàn bộ lịch sử hội thoại cũ.
