@@ -3,7 +3,7 @@
 > **Người công bố:** Lê Minh Công — Người sáng lập (AHI-F, AHI-Founder)
 > **Phạm vi phát hành:** Nội bộ đội ngũ sáng lập & phát triển AHI. Chưa công bố ra bên ngoài.
 > **Bắt đầu nghiên cứu:** 2018 — hiện đang hiệu chỉnh và hoàn thiện tiếp.
-> Tài liệu bổ sung cho *AHI-WS-Thiet-Ke-Kien-Truc.md*. Tên gọi chuẩn hóa: **AHI-Workspace** (trước đây viết là "AHI Workspace").
+> Tài liệu bổ sung cho *AHI-WS-Thiet-Ke-Kien-Truc.md*. Tên gọi chuẩn hóa: **AHI-Workspace** (trước đây viết là "AHI Workspace"). Tên file tài liệu này: **AHI-Cong-Bo-Du-An.md** (đã bỏ hậu tố phiên bản khỏi tên file, phiên bản theo dõi trong bảng changelog mục 14).
 
 ---
 
@@ -13,7 +13,7 @@
 - Tốt nghiệp Đại học (Toán — Tin), Đại học Quốc gia Hà Nội, đầu những năm 2000.
 - Tốt nghiệp Thạc sỹ Quản trị Kinh doanh, đầu những năm 202X.
 - Chứng chỉ đào tạo phần cứng máy tính của Pháp, cuối những năm 199X.
-- Thực hiện dự án **Tratu** từ năm 2007, vẫn đang vận hành đến nay.
+- Thực hiện dự án **Tratu** từ năm 2007, vẫn đang chạy phục vụ hàng triệu người hàng chục năm nay.
 - Nghiên cứu và triển khai dự án AHI từ 2018 đến nay.
 
 ## 0.1 Ghi chú xuất bản
@@ -194,3 +194,5 @@ Từ bản này trở đi, các thay đổi được ghi nhận theo dạng: **s
 | v1.0 | (khởi tạo) | Toàn bộ tài liệu | Bản công bố đầu tiên, tổng hợp các nguyên tắc vận hành AHI-Workspace |
 | v1.1 | 2026-07-07 | Mục 0, 0.1, 4, 6, 13 | Bổ sung thông tin người sáng lập; chuyển khung công bố sang nội bộ đội sáng lập; làm rõ mục đích khoản điểm dành cho chủ sở hữu Claude; chốt cấp xác minh ADN hợp lệ; thêm nguyên tắc ghi nhận lịch sử đóng góp |
 | v1.2 | 2026-07-13 | Toàn bộ tài liệu | Hạn chế tối đa viết tắt: thay thế phần lớn ký hiệu viết tắt bằng tên đầy đủ tiếng Việt trong nội dung diễn giải, chỉ giữ lại mã định danh gốc trong ngoặc khi cần đối chiếu với các tài liệu khác |
+| v1.3 | 2026-07-14 | Mục 0 | Điều chỉnh câu mô tả dự án Tratu: nêu rõ quy mô phục vụ (hàng triệu người) và thời gian vận hành (hàng chục năm) |
+| v1.4 | 2026-07-14 | Tên file, mục tiêu đề | Đổi tên file từ `AHI-Cong-Bo-Du-An-V1.md` thành `AHI-Cong-Bo-Du-An.md` (bỏ hậu tố phiên bản khỏi tên file); cập nhật đồng bộ mọi tham chiếu chéo tên file này tại *AHI-WS-Thiet-Ke-Kien-Truc.md* và *AHI-Ung-Dung-Triet-Hoc.md* |

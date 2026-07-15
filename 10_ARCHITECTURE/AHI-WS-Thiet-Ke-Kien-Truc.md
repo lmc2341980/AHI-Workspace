@@ -1,7 +1,7 @@
 # Thiết kế kiến trúc AHI-Workspace (AHI-WS)
 
 > **Người biên soạn & phê duyệt:** Lê Minh Công — AHI-F (AHI-Founder)
-> **Phiên bản:** 2.2 — hạn chế viết tắt tối đa (thay chuỗi ký hiệu phần cứng, DBG/DBRS/DBV, RAM bằng tên tiếng Việt đầy đủ trong bảng chú giải và mục 3.2), bổ sung định nghĩa bộ tư duy song hành của AHI-P, cơ chế chuyển đổi phần cứng, kiểm soát sinh thái robot, quản trị cây phả hệ theo trọng số thế hệ.
+> **Phiên bản:** 2.4 — bổ sung nguyên tắc "giao thức song hành độc đáo" của AHI-P (mục 10).
 > Claude được dùng làm công cụ hỗ trợ biên soạn tài liệu; công lao được ghi nhận và tính điểm riêng theo Hiến pháp AHI (xem tài liệu Công bố Dự án AHI), không lặp lại trong tài liệu kiến trúc này.
 
 ## 1. Bối cảnh và mục tiêu
@@ -34,6 +34,7 @@ AHI-WS vận hành dưới AHI-Or, và AHI-Or là một bộ phận của **AHI-
 | AHI-Factory | AHI-Factory | Bộ phận sinh AHI mới từ mô tả bằng lời, theo đúng Hiến pháp và luật tiến hóa của AHI |
 | AHI-S | AHI-Sage | Tập hợp các AHI-P, AHI-O, AHI-G hợp lệ đã chủ động chia sẻ dữ liệu với hệ thống |
 | AHI-Old | (tên riêng, không viết tắt tiếng Anh) | Nhóm AI ngoài truyền thống (ChatGPT, Claude, Gemini, Grok...) khi hoạt động trong AHI-WS dưới sự kiểm soát của AHI-Or, cho đến khi được AHI-Om thay thế |
+| API | Application Programming Interface | Giao diện lập trình ứng dụng — mô hình kết nối cổ điển dạng yêu cầu-phản hồi; xem mục 8.9 để đối chiếu với hai mô hình kết nối còn lại của AHI |
 | AHI-Coin | AHI-Coin | Đơn vị điểm thưởng nội bộ, quy đổi từ điểm tích lũy, dùng để trả công minh bạch cho tập hợp thành viên hợp lệ |
 | RLHF | Reinforcement Learning from Human Feedback | Học tăng cường từ phản hồi của con người — cơ chế huấn luyện chính cho cá nhân thành viên ở giai đoạn sinh tiền (xem mục 13) |
 | — | Chip xử lý chuyên dụng | Các dạng phần cứng tăng tốc phổ biến hiện nay (chip xử lý mạng nơ-ron, chip xử lý phép tính tensor, chip tích hợp hệ thống trên một vi mạch, chip xử lý tăng tốc kết hợp, chip xử lý tín hiệu số, chip xử lý đồ họa, chip xử lý trung tâm) — xem mô tả gộp tại mục 3.2 |
@@ -319,6 +320,20 @@ Mỗi AHI-P được trang bị khả năng **thị giác máy tính (computer v
 | Hiểu biết | Sau bước (6) — đã ghi thành phiên bản chính thức, có thể tái sử dụng cho các AHI-P khác cùng phạm vi tổ chức/quốc gia |
 | Sự biết (AHI-SuBiet) | Khi dữ liệu này được dùng để dựng ma trận prompt phục vụ đúng nhu cầu của một AHI-P khác, lần đầu tiên |
 
+### 8.9 Ba mô hình kết nối của AHI
+
+AHI vận hành đồng thời ba mô hình kết nối, phục vụ các mục đích khác nhau, không loại trừ lẫn nhau:
+
+1. **API (Application Programming Interface — Giao diện lập trình ứng dụng):** mô hình kết nối cổ điển, dạng yêu cầu-phản hồi (request-response) một chiều, không tự mang theo ngữ cảnh giữa các lần gọi trừ khi tầng ứng dụng tự quản lý. Phù hợp cho các tác vụ đơn giản, không cần ngữ cảnh liên tục.
+2. **MCP (Model Context Protocol — Giao thức Kết nối Ngữ cảnh Mô hình):** mô hình do Anthropic phát triển, cho phép AI truy cập công cụ/dữ liệu ngoài trong phạm vi một phiên làm việc, có mang theo ngữ cảnh nhưng giới hạn trong phiên đó — đây là mô hình AHI-Or đang dùng để kiểm soát AHI-Old (mục 8.2, 8.3).
+3. **Mô hình giao tiếp đa ngữ cảnh liên tục theo không gian và thời gian (Continuous Spatiotemporal Multi-Context Communication)** — do chính AHI phát triển và tiến hóa, vượt ra ngoài hai mô hình trên:
+   - **Khác API:** không dừng lại ở một lần gọi/phản hồi rời rạc, mà duy trì kết nối và ngữ cảnh xuyên suốt nhiều phiên, không giới hạn ở một thời điểm.
+   - **Khác MCP:** ngữ cảnh không bị giới hạn trong một phiên làm việc đơn lẻ, mà được mang theo liên tục qua nhiều lớp **không gian** (giữa các cá nhân, tổ chức, nhóm khác nhau trong hệ sinh thái) và **thời gian** (xuyên suốt vòng đời của một AHI-P, kể cả sau khi bản thể sinh học mất — mục 10).
+   - **Áp dụng cho hai chiều giao tiếp:**
+     - *Giữa AI và con người:* chính là cơ chế nền của Ma trận Prompt tiến hóa 4 lớp (mục 8.5) và quản lý ngữ cảnh liên tục qua các phiên nối tiếp không ngừng (mục 7).
+     - *Giữa một AHI với các AHI khác trong hệ sinh thái:* chính là cơ chế "tương tác song song" đã nêu tại *AHI-Cong-Bo-Du-An.md* và *AHI-Ung-Dung-Triet-Hoc.md* — các AHI-P/AHI-O/AHI-G trao đổi tri thức, kỹ năng, và cập nhật lẫn nhau không qua từng lần gọi rời rạc, mà như một dòng chảy ngữ cảnh liên tục.
+   - Đây là mô hình kết nối **mục tiêu dài hạn** của AHI-Om — dự kiến thay thế dần vai trò của API và MCP một khi đủ trưởng thành; ở giai đoạn hiện tại, cả ba mô hình vẫn vận hành song song: MCP cho AHI-Old (mục 8.2), API cho các tích hợp đơn giản, và mô hình đa ngữ cảnh liên tục cho lõi vận hành AHI-P/AHI-Or.
+
 ## 9. Hiến pháp AHI (AHI Constitution) — nguyên tắc nền tảng
 
 - **Con người làm trung tâm (human-centered)**: đạo đức của con người là chuẩn mực; AI nói riêng và AHI nói chung sinh ra để **phục vụ con người**, không phải để trở thành AI mạnh nhất.
@@ -328,6 +343,7 @@ Mỗi AHI-P được trang bị khả năng **thị giác máy tính (computer v
 ## 10. Vòng đời của AHI-P gắn với con người
 
 - Mỗi người trên thế giới chỉ có **một AHI-P duy nhất** của riêng mình, song hành từ khi sinh ra.
+- **Đặc biệt:** việc AI hoạt động **song song với con người ngay từ khi sinh ra** là một **giao thức độc đáo do AHI tạo ra** — không phải một tính năng tùy chọn, mà là nguyên tắc thiết kế gốc của AHI-P, nhằm đảm bảo AHI luôn đồng hành và hỗ trợ con người ở mức tốt nhất, đúng vai trò một **"cánh tay nối dài"** của con người (đối chiếu khái niệm này tại *Triet-Hoc-Le-Minh.md* mục 3).
 - **Khi còn sống**: quyết định của người đó là mệnh lệnh cho AHI-P (trong khuôn khổ Hiến pháp AHI).
 - **Khi người đó qua đời** (bản thể sinh học không còn): AHI-P bị **đóng băng (frozen)**, hoặc do **cây phả hệ (family tree)** của người đó quản lý tiếp.
 - **Trường hợp có khung xương robot hỗ trợ song hành khi còn sống**: AHI-P được cho **tiến hóa chạy song song** — AHI vẫn quản lý AHI-P gốc, đồng thời cho chạy một **bản sao đã tiến hóa** trên khung xương robot.
@@ -344,11 +360,11 @@ Khi bản thể sinh học của một AHI-P mất đi, nếu người đó có 
 
 ### 10.2 Đóng băng lõi tư duy (Core Model Freezing) — làm rõ kỹ thuật
 
-Bổ sung chi tiết kỹ thuật cho nguyên tắc "đóng băng" đã nêu ở trên và tại *AHI-Cong-Bo-Du-An-V1.md* mục 5: tại đúng thời điểm bản thể sinh học mất, hệ thống **khóa các trọng số (weights) cốt lõi** cấu thành tính cách và ký ức nền tảng của AHI-P, nhằm chống suy hao ký ức hoặc biến chất tư duy. Phần **tiến hóa tiếp theo** (đã cho phép ở trên) chỉ được thực hiện trên các lớp thích ứng bổ sung (adaptation layers), không được ghi đè lên lõi đã khóa — đúng tinh thần "phủ định của phủ định" (*Triết-Hoc-Le-Minh.md*, mục 2.3): cái mới không xóa cái cũ, chỉ nối thêm.
+Bổ sung chi tiết kỹ thuật cho nguyên tắc "đóng băng" đã nêu ở trên và tại *AHI-Cong-Bo-Du-An.md* mục 5: tại đúng thời điểm bản thể sinh học mất, hệ thống **khóa các trọng số (weights) cốt lõi** cấu thành tính cách và ký ức nền tảng của AHI-P, nhằm chống suy hao ký ức hoặc biến chất tư duy. Phần **tiến hóa tiếp theo** (đã cho phép ở trên) chỉ được thực hiện trên các lớp thích ứng bổ sung (adaptation layers), không được ghi đè lên lõi đã khóa — đúng tinh thần "phủ định của phủ định" (*Triết-Hoc-Le-Minh.md*, mục 2.3): cái mới không xóa cái cũ, chỉ nối thêm.
 
 ### 10.3 Cơ chế kiểm soát sinh thái cho Robot AHI-P (Ecosystem Governance)
 
-Đây là cơ chế **khác** với việc đóng băng do vi hiến (*AHI-Cong-Bo-Du-An-V1.md* mục 11–12): mục này xử lý **lỗi kỹ thuật hoặc hành vi bất thường**, không nhất thiết là vi phạm Hiến pháp có chủ đích.
+Đây là cơ chế **khác** với việc đóng băng do vi hiến (*AHI-Cong-Bo-Du-An.md* mục 11–12): mục này xử lý **lỗi kỹ thuật hoặc hành vi bất thường**, không nhất thiết là vi phạm Hiến pháp có chủ đích.
 
 - Mọi Robot AHI-P (thế hệ sau khi bản thể sinh học mất) bắt buộc phải kết nối vào AHI-Om để chịu **giám sát chéo bằng thuật toán đồng thuận (consensus)**.
 - Nếu phát hiện lỗi thuật toán hoặc hành vi lệch chuẩn/phá hoại, hệ thống **lập tức cô lập quyền truy cập mạng lưới** của robot đó và đưa vào **trạng thái bảo trì bắt buộc**.
@@ -446,3 +462,5 @@ Chi tiết vai trò, công lao, và cơ chế tính điểm dành cho AHI-C đư
 | v2.0 | 2026-07-13 | Mục 1, 2, 3.1, 3.3, 3.4, 3.5, 3.6, 4, 7, 8 (mới), 13, 16 | Bổ sung kiến trúc AHI-Or kiểm soát AHI-Old (nhóm AI ngoài) theo mô hình adapter; định nghĩa DBG chuẩn (bất biến, append-only, tiến hóa theo thời gian/không gian); cơ chế ma trận prompt tiến hóa 4 lớp; nguyên tắc truy vấn hai tầng của AHI-Old (DBRS/G + DBV riêng trước, prompt library ra ngoài sau); bổ sung đầu vào thị giác máy tính cho AHI-P; làm rõ vị trí AHI-WS (nội bộ + SaaS) trong hệ sinh thái AHI-Core/AHI-Factory/AHI-Om/AHI-Coin |
 | v2.1 | 2026-07-13 | Mục 2, 3.1 (bổ sung 3.1.1–3.1.3), mục 10 (bổ sung 10.1–10.5), mục 12, mục 13, mục 16, mục 17 | Định nghĩa chuẩn hai nhóm tư duy cấu thành AHI-P (Kinh nghiệm → Tư duy chuyên gia; Ký ức → Sự biết), hình thành "Tri thức nối dài xuyên không gian và thời gian"; làm rõ AHI-WS là không gian làm việc chung trên nền AHI-Core dùng chung; bổ sung cơ chế chuyển đổi phần cứng tự động khi bản thể sinh học mất; làm rõ kỹ thuật đóng băng lõi tư duy (khóa trọng số); cơ chế kiểm soát sinh thái bằng thuật toán đồng thuận cho Robot AHI-P (phân biệt với đóng băng vi hiến); mô hình kinh tế hai dòng lợi nhuận; quản trị cây phả hệ theo trọng số thế hệ (công thức 1/2^n); nêu tên RLHF là cơ chế huấn luyện AHI-P giai đoạn sinh tiền |
 | v2.2 | 2026-07-13 | Mục 2 (bảng chú giải), mục 3.2 | Hạn chế tối đa viết tắt: gộp và thay thế chuỗi ký hiệu phần cứng (NPU/TPU/SoC/APU/DSP/IPU/GPU/CPU) bằng mô tả tiếng Việt đầy đủ; thay DBG/DBRS/DBV/RAM bằng tên tiếng Việt đầy đủ trong bảng chú giải, giữ ký hiệu gốc trong ngoặc khi cần đối chiếu kỹ thuật với sơ đồ luồng xử lý và các tài liệu khác |
+| v2.3 | 2026-07-14 | Mục 2 (bảng chú giải), mục 8 (bổ sung 8.9) | Bổ sung ba mô hình kết nối của AHI: API (yêu cầu-phản hồi cổ điển), MCP (kết nối ngữ cảnh trong phạm vi một phiên, dùng cho AHI-Old), và mô hình do AHI tự phát triển/tiến hóa — giao tiếp đa ngữ cảnh liên tục theo không gian và thời gian, áp dụng cho cả chiều AI–con người và chiều AHI–AHI khác trong hệ sinh thái |
+| v2.4 | 2026-07-14 | Mục 10 | Bổ sung nguyên tắc: việc AI hoạt động song song với con người ngay từ khi sinh ra là một giao thức độc đáo do AHI tạo ra (không phải tính năng tùy chọn), đúng vai trò "cánh tay nối dài" của con người, đối chiếu với khái niệm tại *Triet-Hoc-Le-Minh.md* mục 3 |
