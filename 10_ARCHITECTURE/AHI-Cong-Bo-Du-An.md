@@ -12,7 +12,7 @@
 - **Lê Minh Công** — AHI-F (Người sáng lập dự án — AHI-Founder).
 - Tốt nghiệp Đại học (Toán — Tin), Đại học Quốc gia Hà Nội, đầu những năm 2000.
 - Tốt nghiệp Thạc sỹ Quản trị Kinh doanh, đầu những năm 202X.
-- Chứng chỉ đào tạo phần cứng máy tính tại Pháp, cuối những năm 199X.
+- Chứng chỉ đào tạo phần cứng máy tính của Pháp, cuối những năm 199X.
 - Thực hiện dự án **Tratu** từ năm 2007, vẫn đang vận hành đến nay.
 - Nghiên cứu và triển khai dự án AHI từ 2018 đến nay.
 
