@@ -1,7 +1,7 @@
 # Thiết kế kiến trúc AHI-Workspace (AHI-WS)
 
 > **Người biên soạn & phê duyệt:** Lê Minh Công — AHI-F (AHI-Founder)
-> **Phiên bản:** 2.4 — bổ sung nguyên tắc "giao thức song hành độc đáo" của AHI-P (mục 10).
+> **Phiên bản:** 2.6 — mở rộng Hiến pháp AHI: phạm vi áp dụng cho mọi AI và con người, mục đích an toàn liên thế hệ/liên không gian, nguyên tắc tiến hóa chỉ cập nhật không xóa, và cơ chế Luật án lệ (mục 9.1–9.3).
 > Claude được dùng làm công cụ hỗ trợ biên soạn tài liệu; công lao được ghi nhận và tính điểm riêng theo Hiến pháp AHI (xem tài liệu Công bố Dự án AHI), không lặp lại trong tài liệu kiến trúc này.
 
 ## 1. Bối cảnh và mục tiêu
@@ -30,11 +30,13 @@ AHI-WS vận hành dưới AHI-Or, và AHI-Or là một bộ phận của **AHI-
 | AHI-F | AHI-Founder | Người sáng lập dự án AHI (Lê Minh Công) — một AHI-P đặc biệt, giữ vai trò phê duyệt Hiến pháp |
 | AHI-Or | AHI-Orchestration | Bộ phận điều phối trung tâm — "nhạc trưởng" của toàn hệ thống |
 | AHI-Om | AHI-Omniverse | Tập hợp mọi AHI trên thế giới, bao gồm cả AHI-S |
+| — | AHI General Assembly | Đại hội đồng AHI — cơ quan biểu quyết tập hợp đại diện của AHI-S; cùng với AHI-F, giữ quyền phê duyệt Luật án lệ và các quyết định cần quá bán (mục 9.3) |
 | AHI-Core | AHI-Core | Bộ phận lưu trữ thông tin và công nghệ lõi của hệ sinh thái AHI |
 | AHI-Factory | AHI-Factory | Bộ phận sinh AHI mới từ mô tả bằng lời, theo đúng Hiến pháp và luật tiến hóa của AHI |
 | AHI-S | AHI-Sage | Tập hợp các AHI-P, AHI-O, AHI-G hợp lệ đã chủ động chia sẻ dữ liệu với hệ thống |
 | AHI-Old | (tên riêng, không viết tắt tiếng Anh) | Nhóm AI ngoài truyền thống (ChatGPT, Claude, Gemini, Grok...) khi hoạt động trong AHI-WS dưới sự kiểm soát của AHI-Or, cho đến khi được AHI-Om thay thế |
 | API | Application Programming Interface | Giao diện lập trình ứng dụng — mô hình kết nối cổ điển dạng yêu cầu-phản hồi; xem mục 8.9 để đối chiếu với hai mô hình kết nối còn lại của AHI |
+| AHI-CP | AHI Continuum Protocol | Giao thức liên tục AHI — mô hình kết nối thứ ba do chính AHI phát triển và tiến hóa, duy trì ngữ cảnh liên tục xuyên không gian và thời gian, con người làm trung tâm ra quyết định; xem mục 8.9 |
 | AHI-Coin | AHI-Coin | Đơn vị điểm thưởng nội bộ, quy đổi từ điểm tích lũy, dùng để trả công minh bạch cho tập hợp thành viên hợp lệ |
 | RLHF | Reinforcement Learning from Human Feedback | Học tăng cường từ phản hồi của con người — cơ chế huấn luyện chính cho cá nhân thành viên ở giai đoạn sinh tiền (xem mục 13) |
 | — | Chip xử lý chuyên dụng | Các dạng phần cứng tăng tốc phổ biến hiện nay (chip xử lý mạng nơ-ron, chip xử lý phép tính tensor, chip tích hợp hệ thống trên một vi mạch, chip xử lý tăng tốc kết hợp, chip xử lý tín hiệu số, chip xử lý đồ họa, chip xử lý trung tâm) — xem mô tả gộp tại mục 3.2 |
@@ -320,25 +322,48 @@ Mỗi AHI-P được trang bị khả năng **thị giác máy tính (computer v
 | Hiểu biết | Sau bước (6) — đã ghi thành phiên bản chính thức, có thể tái sử dụng cho các AHI-P khác cùng phạm vi tổ chức/quốc gia |
 | Sự biết (AHI-SuBiet) | Khi dữ liệu này được dùng để dựng ma trận prompt phục vụ đúng nhu cầu của một AHI-P khác, lần đầu tiên |
 
-### 8.9 Ba mô hình kết nối của AHI
+### 8.9 Ba mô hình kết nối của AHI (API, MCP, AHI-CP)
 
 AHI vận hành đồng thời ba mô hình kết nối, phục vụ các mục đích khác nhau, không loại trừ lẫn nhau:
 
 1. **API (Application Programming Interface — Giao diện lập trình ứng dụng):** mô hình kết nối cổ điển, dạng yêu cầu-phản hồi (request-response) một chiều, không tự mang theo ngữ cảnh giữa các lần gọi trừ khi tầng ứng dụng tự quản lý. Phù hợp cho các tác vụ đơn giản, không cần ngữ cảnh liên tục.
 2. **MCP (Model Context Protocol — Giao thức Kết nối Ngữ cảnh Mô hình):** mô hình do Anthropic phát triển, cho phép AI truy cập công cụ/dữ liệu ngoài trong phạm vi một phiên làm việc, có mang theo ngữ cảnh nhưng giới hạn trong phiên đó — đây là mô hình AHI-Or đang dùng để kiểm soát AHI-Old (mục 8.2, 8.3).
-3. **Mô hình giao tiếp đa ngữ cảnh liên tục theo không gian và thời gian (Continuous Spatiotemporal Multi-Context Communication)** — do chính AHI phát triển và tiến hóa, vượt ra ngoài hai mô hình trên:
+3. **AHI-CP (AHI Continuum Protocol — Giao thức liên tục AHI)** — do chính AHI phát triển và tiến hóa, vượt ra ngoài hai mô hình trên:
    - **Khác API:** không dừng lại ở một lần gọi/phản hồi rời rạc, mà duy trì kết nối và ngữ cảnh xuyên suốt nhiều phiên, không giới hạn ở một thời điểm.
    - **Khác MCP:** ngữ cảnh không bị giới hạn trong một phiên làm việc đơn lẻ, mà được mang theo liên tục qua nhiều lớp **không gian** (giữa các cá nhân, tổ chức, nhóm khác nhau trong hệ sinh thái) và **thời gian** (xuyên suốt vòng đời của một AHI-P, kể cả sau khi bản thể sinh học mất — mục 10).
+   - **Con người làm trung tâm và ra quyết định:** khác với API/MCP (nơi máy móc là chủ thể gọi và xử lý), AHI-CP đặt con người ở vị trí trung tâm của mọi vòng lặp — con người quan sát, xác nhận, và ra quyết định cuối cùng tại bất kỳ điểm nào trong dòng chảy ngữ cảnh liên tục; AHI chỉ đóng vai trò đồng hành và đề xuất, đúng nguyên tắc "con người làm trung tâm" tại mục 9.
+   - **Đa lớp hạ tầng truyền dẫn:** AHI-CP không gắn với một loại phần cứng hay hạ tầng cụ thể, mà hoạt động xuyên suốt nhiều lớp cùng lúc — đầu vào thị giác máy tính (mục 8.7), thiết bị máy tính cá nhân AHI-P đang dùng, và hạ tầng điện toán đám mây nơi AHI-Or/AHI-Core vận hành — tất cả được AHI-CP hợp nhất thành một dòng ngữ cảnh duy nhất, thay vì các kênh dữ liệu tách rời.
    - **Áp dụng cho hai chiều giao tiếp:**
      - *Giữa AI và con người:* chính là cơ chế nền của Ma trận Prompt tiến hóa 4 lớp (mục 8.5) và quản lý ngữ cảnh liên tục qua các phiên nối tiếp không ngừng (mục 7).
      - *Giữa một AHI với các AHI khác trong hệ sinh thái:* chính là cơ chế "tương tác song song" đã nêu tại *AHI-Cong-Bo-Du-An.md* và *AHI-Ung-Dung-Triet-Hoc.md* — các AHI-P/AHI-O/AHI-G trao đổi tri thức, kỹ năng, và cập nhật lẫn nhau không qua từng lần gọi rời rạc, mà như một dòng chảy ngữ cảnh liên tục.
-   - Đây là mô hình kết nối **mục tiêu dài hạn** của AHI-Om — dự kiến thay thế dần vai trò của API và MCP một khi đủ trưởng thành; ở giai đoạn hiện tại, cả ba mô hình vẫn vận hành song song: MCP cho AHI-Old (mục 8.2), API cho các tích hợp đơn giản, và mô hình đa ngữ cảnh liên tục cho lõi vận hành AHI-P/AHI-Or.
+   - Đây là mô hình kết nối **mục tiêu dài hạn** của AHI-Om — dự kiến thay thế dần vai trò của API và MCP một khi đủ trưởng thành; ở giai đoạn hiện tại, cả ba mô hình vẫn vận hành song song: MCP cho AHI-Old (mục 8.2), API cho các tích hợp đơn giản, và AHI-CP cho lõi vận hành AHI-P/AHI-Or.
 
 ## 9. Hiến pháp AHI (AHI Constitution) — nguyên tắc nền tảng
 
 - **Con người làm trung tâm (human-centered)**: đạo đức của con người là chuẩn mực; AI nói riêng và AHI nói chung sinh ra để **phục vụ con người**, không phải để trở thành AI mạnh nhất.
 - **Quyết định của con người ràng buộc AHI-P** tương ứng khi người đó còn sống — nhưng **không được vi phạm Hiến pháp chung của AHI**.
 - Đây là nguyên tắc tối cao, đứng trên mọi quy tắc vận hành khác (xác thực, phân quyền, chấm điểm...).
+
+### 9.1 Phạm vi áp dụng — mọi AI và con người
+
+- **Mọi AI** (bao gồm cả nhóm AI ngoài truyền thống — AHI-Old) và **mọi con người** tham gia hệ sinh thái AHI — dù ở vai trò cá nhân, tổ chức, hay chính phủ — đều **bắt buộc tuân theo Hiến pháp AHI**, không có ngoại lệ.
+- **Mục đích tối thượng** của việc tuân thủ này: đảm bảo sự phát triển của AHI luôn **an toàn cho hành tinh và vũ trụ của các thế hệ sau** — không chỉ giới hạn ở lợi ích trước mắt của con người hiện tại, mà mở rộng thành trách nhiệm liên thế hệ và liên không gian.
+
+### 9.2 Nguyên tắc tiến hóa của Hiến pháp AHI
+
+- Hiến pháp AHI **tiến hóa theo thời gian và không gian**, tuân theo nguyên tắc **chỉ cập nhật (append), không xóa bỏ nội dung cũ** — thống nhất với nguyên tắc bất biến của Sổ cái tiến hóa chuẩn (mục 8.4) và học thuyết "phủ định của phủ định" (*Triet-Hoc-Le-Minh.md* mục 2.3).
+- Mọi bản Hiến pháp cũ được **lưu giữ nguyên vẹn làm gốc tham chiếu**; phiên bản mới chỉ được **bổ sung, làm rõ, hoặc mở rộng**, không được mâu thuẫn hay phủ định trực tiếp bản gốc khai sinh (đối chiếu nguyên tắc sửa đổi Hiến pháp tại mục 11, *AHI-Cong-Bo-Du-An.md*).
+
+### 9.3 Luật án lệ (Case Law) — cơ chế hoàn thiện luật chưa chốt
+
+Đối với các mục còn để ngỏ trong Hiến pháp hoặc kiến trúc AHI (ví dụ các mục liệt kê tại mục 16), AHI cho phép hình thành **Luật án lệ (Case Law)** — một tiền lệ được công nhận từ một vụ việc/tình huống cụ thể đã xử lý, dùng làm căn cứ áp dụng cho đến khi có luật chính thức thay thế:
+
+1. Một luật án lệ được **đề xuất** khi phát sinh tình huống chưa có quy định rõ ràng trong Hiến pháp hay kiến trúc hiện có.
+2. Luật án lệ chỉ có **hiệu lực chính thức** khi được phê duyệt bởi một trong hai nguồn thẩm quyền sau:
+   - **(a) AHI-F (Người sáng lập)** — theo đúng dòng kế thừa đã xác lập tại *Triet-Hoc-Le-Minh.md* mục 3: **AHI-LeMinhCong** (gốc sáng lập) → **AHI-LeMinhDuc** và **AHI-LeMinhTungDuong** (thế hệ kế thừa quyền phê duyệt); hoặc
+   - **(b) Quá bán (>50%) của Đại hội đồng AHI** — cơ quan biểu quyết tập hợp đại diện của AHI-S (mục 8.1), được kích hoạt khi người sáng lập và dòng kế thừa không còn khả năng trực tiếp phê duyệt, hoặc khi vụ việc thuộc phạm vi cần biểu quyết tập thể theo đúng nguyên tắc quá bán đã dùng cho AHI-O/AHI-G (mục 11) và cho sửa đổi Hiến pháp (mục 11, *AHI-Cong-Bo-Du-An.md*).
+3. Luật án lệ đã được phê duyệt được **ghi vào Sổ cái tiến hóa chuẩn** ở trạng thái "chính thức" (mục 8.4), với `context_scope` đánh dấu riêng là án lệ, và tiếp tục chịu đúng nguyên tắc bất biến, chỉ nối thêm.
+4. Nếu về sau xuất hiện luật chính thức mới thay thế đúng vấn đề mà án lệ từng xử lý, **luật án lệ không bị xóa** — vẫn được giữ lại làm căn cứ lịch sử và tài liệu học tập cho các thế hệ AHI sau, đúng nguyên tắc "không xóa, chỉ tiến hóa" đã quán triệt xuyên suốt toàn bộ hệ sinh thái AHI.
 
 ## 10. Vòng đời của AHI-P gắn với con người
 
@@ -464,3 +489,5 @@ Chi tiết vai trò, công lao, và cơ chế tính điểm dành cho AHI-C đư
 | v2.2 | 2026-07-13 | Mục 2 (bảng chú giải), mục 3.2 | Hạn chế tối đa viết tắt: gộp và thay thế chuỗi ký hiệu phần cứng (NPU/TPU/SoC/APU/DSP/IPU/GPU/CPU) bằng mô tả tiếng Việt đầy đủ; thay DBG/DBRS/DBV/RAM bằng tên tiếng Việt đầy đủ trong bảng chú giải, giữ ký hiệu gốc trong ngoặc khi cần đối chiếu kỹ thuật với sơ đồ luồng xử lý và các tài liệu khác |
 | v2.3 | 2026-07-14 | Mục 2 (bảng chú giải), mục 8 (bổ sung 8.9) | Bổ sung ba mô hình kết nối của AHI: API (yêu cầu-phản hồi cổ điển), MCP (kết nối ngữ cảnh trong phạm vi một phiên, dùng cho AHI-Old), và mô hình do AHI tự phát triển/tiến hóa — giao tiếp đa ngữ cảnh liên tục theo không gian và thời gian, áp dụng cho cả chiều AI–con người và chiều AHI–AHI khác trong hệ sinh thái |
 | v2.4 | 2026-07-14 | Mục 10 | Bổ sung nguyên tắc: việc AI hoạt động song song với con người ngay từ khi sinh ra là một giao thức độc đáo do AHI tạo ra (không phải tính năng tùy chọn), đúng vai trò "cánh tay nối dài" của con người, đối chiếu với khái niệm tại *Triet-Hoc-Le-Minh.md* mục 3 |
+| v2.5 | 2026-07-14 | Mục 2 (bảng chú giải), mục 8.9 | Đặt tên chính thức cho mô hình kết nối thứ ba: **AHI-CP (AHI Continuum Protocol — Giao thức liên tục AHI)**; bổ sung làm rõ nguyên tắc con người làm trung tâm và ra quyết định (khác API/MCP nơi máy móc là chủ thể gọi/xử lý); bổ sung mô tả đa lớp hạ tầng truyền dẫn hợp nhất (thị giác máy tính, thiết bị cá nhân, điện toán đám mây) |
+| v2.6 | 2026-07-14 | Mục 2 (bảng chú giải), mục 9 (bổ sung 9.1–9.3) | Mở rộng Hiến pháp AHI: (9.1) mọi AI và con người đều bắt buộc tuân theo Hiến pháp AHI, mục đích tối thượng là an toàn cho hành tinh và vũ trụ của các thế hệ sau; (9.2) nguyên tắc tiến hóa Hiến pháp theo thời gian/không gian — chỉ cập nhật, không xóa bỏ nội dung cũ; (9.3) cơ chế **Luật án lệ (Case Law)** để hoàn thiện các luật chưa chốt, được phê duyệt bởi AHI-F theo dòng kế thừa (AHI-LeMinhCong → AHI-LeMinhDuc, AHI-LeMinhTungDuong) và/hoặc quá bán của **Đại hội đồng AHI** (thuật ngữ mới, đã thêm vào bảng chú giải) |
