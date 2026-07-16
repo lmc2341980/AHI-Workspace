@@ -12,97 +12,93 @@
 
 # 1. Purpose
 
-Đặc tả AHI Protocol (AHI-PS) là tài liệu quy định cách các thành phần trong hệ sinh thái AHI tương tác với nhau theo Hiến pháp AHI.
+AHI Protocol Specification (AHI-PS) là tài liệu gốc mô tả giao thức hoạt động của hệ sinh thái AHI.
 
-AHI Protocol không thay thế các giao thức mạng (ví dụ TCP/IP), mà là giao thức tương tác tri thức và tiến hóa giữa Con người, AHI và các AI trong hệ sinh thái.
+Do phạm vi lớn và tiến hóa liên tục, AHI-PS được chia thành nhiều tài liệu con.
+
+Tài liệu này chỉ định nghĩa phạm vi, cấu trúc và quan hệ giữa các tài liệu.
 
 ---
 
 # 2. Inheritance
 
-Tài liệu này kế thừa:
+Kế thừa từ:
 
 - Hiến pháp AHI.
-- 001_AHI_CONSTITUTION_EVOLUTION_SPECIFICATION.md.
-- Các nội dung đã được thống nhất trong các AHI Evolution Session (AES).
+- `001_AHI_CONSTITUTION_EVOLUTION_SPECIFICATION.md`
+
+Không thay thế Hiến pháp.
+
+Không thay thế các đặc tả con.
 
 ---
 
 # 3. Scope
 
-AHI Protocol quy định:
+AHI-PS quy định các nguyên tắc tương tác giữa:
 
-- Cách AHI-P tương tác với hệ sinh thái AHI.
-- Cách AHI-Or điều phối.
-- Cách AHI-V kiểm tra.
-- Cách AHI-SuBiet đánh giá tiến hóa.
-- Cách AHI-Old được tích hợp thông qua AHI-Or.
+- Con người
+- AHI
+- AHI-P
+- AHI-S
+- AHI-Or
+- AHI-V
+- AHI-Factory
+- AHI-Old
+- AHI-Lang
+- AHI-SuBiet
+- AHI-Om
 
----
-
-# 4. Principles
-
-## Human-Centered
-
-Con người là trung tâm của mọi quyết định.
-
-AHI hỗ trợ.
-
-AHI không thay thế quyền quyết định của con người.
+theo Hiến pháp AHI.
 
 ---
 
-## Constitution First
+# 4. Document Structure
 
-Mọi thành phần trong AHI đều phải tuân thủ Hiến pháp.
+AHI-PS được tổ chức thành các tài liệu độc lập.
 
-Nếu có xung đột:
+```
+002_AHI_PROTOCOL_SPECIFICATION.md
 
-Hiến pháp AHI được ưu tiên trong phạm vi hệ sinh thái AHI.
+010_AHI_PROTOCOL_ARCHITECTURE.md
 
----
+020_AHI_PROTOCOL_INTERACTION.md
 
-## Evolution
+030_AHI_PROTOCOL_LANGUAGE.md
 
-AHI tiến hóa liên tục.
+040_AHI_PROTOCOL_RUNTIME.md
 
-Không có phiên bản cuối cùng.
+050_AHI_PROTOCOL_KNOWLEDGE.md
 
----
+060_AHI_PROTOCOL_MEMORY.md
 
-# 5. Interaction Model
+070_AHI_PROTOCOL_RESOURCE.md
 
-AHI không sử dụng mô hình Client–Server truyền thống.
+080_AHI_PROTOCOL_EXAMPLES.md
 
-Các thành phần tương tác theo mô hình song hành được quản trị bởi AHI-Or.
+090_AHI_PROTOCOL_APPENDIX.md
+```
 
----
-
-# 6. AHI-Old
-
-Các AI hiện có như ChatGPT, Claude, Gemini...
-
-được gọi chung là:
-
-AHI-Old.
-
-AHI-Old không giao tiếp trực tiếp với AHI-P.
-
-Việc điều phối được thực hiện thông qua AHI-Or.
+Các tài liệu trên có thể tiếp tục tiến hóa và bổ sung khi được AHI-F phê duyệt.
 
 ---
 
-# 7. Decision
+# 5. Evolution Rule
 
-Tri thức chỉ trở thành tri thức chính thức của AHI-P sau khi được chủ sở hữu AHI-P phê duyệt.
+Mỗi tài liệu con:
+
+- kế thừa Hiến pháp AHI;
+- kế thừa tài liệu gốc này;
+- chỉ tiến hóa trong phạm vi của mình;
+- không được mâu thuẫn với các tài liệu cùng hệ.
 
 ---
 
-# 8. Notes
+# 6. Notes
 
-Tài liệu này chỉ tổng hợp các nội dung đã được thống nhất.
+Tài liệu này không chứa nội dung chi tiết của từng thành phần.
 
-Không bổ sung tri thức mới.
+Nội dung chi tiết được đặc tả trong các tài liệu con.
 
 ---
 
