@@ -1,6 +1,7 @@
 import os
 import json
 
+
 ROOT = "."
 
 IGNORE = {
@@ -13,18 +14,25 @@ IGNORE = {
     "AHI-INDEX"
 }
 
+
+INDEX_PATH = "90_SYSTEM/AHI-INDEX"
+
+
 folders = []
 files = []
 
 knowledge_map = {}
+
 artifacts = []
 
-INDEX_PATH = "90_SYSTEM/AHI-INDEX"
+dependencies = []
+
 
 os.makedirs(
     INDEX_PATH,
     exist_ok=True
 )
+
 
 os.makedirs(
     INDEX_PATH + "/knowledge",
@@ -46,76 +54,123 @@ def safe_name(path):
     )
 
 
-def read_metadata(content):
+
+def parse_metadata(content):
 
     if not content.startswith("---"):
+
         return None
 
-    try:
 
-        end = content.find(
-            "---",
-            3
-        )
-
-        if end == -1:
-            return None
+    end = content.find(
+        "---",
+        3
+    )
 
 
-        yaml_text = content[3:end]
+    if end == -1:
+
+        return None
 
 
-        metadata = {}
+
+    block = content[3:end]
 
 
-        for line in yaml_text.splitlines():
+    metadata = {}
 
-            if ":" in line:
+    current_key = None
 
-                key, value = line.split(
-                    ":",
-                    1
+
+    for line in block.splitlines():
+
+        line = line.rstrip()
+
+
+        if not line.strip():
+
+            continue
+
+
+
+        if line.startswith("  - "):
+
+            if current_key:
+
+                metadata[current_key].append(
+                    line.replace(
+                        "  - ",
+                        ""
+                    ).strip()
                 )
 
-                key = key.strip()
-                value = value.strip()
+            continue
 
 
-                if value:
 
-                    metadata[key] = value
-
-
-        return metadata
+        if ":" in line:
 
 
-    except Exception:
+            key, value = line.split(
+                ":",
+                1
+            )
 
-        return None
+
+            key = key.strip()
+
+            value = value.strip()
+
+
+
+            if value:
+
+                metadata[key] = value
+
+                current_key = None
+
+
+            else:
+
+                metadata[key] = []
+
+                current_key = key
+
+
+
+    return metadata
+
 
 
 
 for path, dirs, fs in os.walk(ROOT):
+
 
     dirs[:] = [
         d for d in dirs
         if d not in IGNORE
     ]
 
+
     rel = os.path.relpath(
         path,
         ROOT
     )
 
+
     folders.append(rel)
+
 
 
     folder_key = safe_name(rel)
 
+
     knowledge_map[folder_key] = []
 
 
+
     manifest = []
+
 
 
     for d in dirs:
@@ -125,11 +180,14 @@ for path, dirs, fs in os.walk(ROOT):
         )
 
 
+
     for file in fs:
 
 
         if file == "MANIFEST.md":
+
             continue
+
 
 
         full_path = os.path.join(
@@ -154,6 +212,7 @@ for path, dirs, fs in os.walk(ROOT):
         )
 
 
+
         if file.lower().endswith(".md"):
 
 
@@ -163,9 +222,11 @@ for path, dirs, fs in os.walk(ROOT):
                     full_path,
                     "r",
                     encoding="utf8"
-                ) as md:
+                ) as f:
 
-                    content = md.read()
+
+                    content = f.read()
+
 
 
                 knowledge_map[folder_key].append(
@@ -176,23 +237,53 @@ for path, dirs, fs in os.walk(ROOT):
                 )
 
 
-                metadata = read_metadata(
+
+                metadata = parse_metadata(
                     content
                 )
 
 
+
                 if metadata:
 
+
                     metadata["path"] = rel_path
+
 
                     artifacts.append(
                         metadata
                     )
 
 
+
+                    dependencies.append(
+                        {
+                            "id": metadata.get("id"),
+
+                            "parent": metadata.get(
+                                "parent",
+                                []
+                            ),
+
+                            "dependencies": metadata.get(
+                                "dependencies",
+                                []
+                            ),
+
+                            "tags": metadata.get(
+                                "tags",
+                                []
+                            ),
+
+                            "path": rel_path
+                        }
+                    )
+
+
             except Exception:
 
                 pass
+
 
 
 
@@ -203,24 +294,29 @@ for path, dirs, fs in os.walk(ROOT):
         ),
         "w",
         encoding="utf8"
-    ) as out:
+    ) as f:
 
 
-        out.write(
+        f.write(
             "# MANIFEST\n\n"
         )
 
-        out.write(
+
+        f.write(
             f"Folder: `{rel}`\n\n"
         )
 
-        out.write(
+
+        f.write(
             "## Contents\n\n"
         )
 
-        out.write(
+
+        f.write(
             "\n".join(manifest)
         )
+
+
 
 
 
@@ -230,28 +326,18 @@ with open(
     encoding="utf8"
 ) as f:
 
+
     json.dump(
         {
             "folders": len(folders),
             "files": len(files)
         },
         f,
-        indent=2
+        indent=2,
+        ensure_ascii=False
     )
 
 
-
-with open(
-    INDEX_PATH + "/files.json",
-    "w",
-    encoding="utf8"
-) as f:
-
-    json.dump(
-        files,
-        f,
-        indent=2
-    )
 
 
 
@@ -263,10 +349,37 @@ with open(
 
 
     for item in folders:
-        f.write(item + "\n")
+
+        f.write(
+            item + "\n"
+        )
+
 
     for item in files:
-        f.write(item + "\n")
+
+        f.write(
+            item + "\n"
+        )
+
+
+
+
+
+with open(
+    INDEX_PATH + "/files.json",
+    "w",
+    encoding="utf8"
+) as f:
+
+
+    json.dump(
+        files,
+        f,
+        indent=2,
+        ensure_ascii=False
+    )
+
+
 
 
 
@@ -274,7 +387,9 @@ for name, items in knowledge_map.items():
 
 
     if not items:
+
         continue
+
 
 
     with open(
@@ -286,6 +401,7 @@ for name, items in knowledge_map.items():
 
         for item in items:
 
+
             f.write(
                 json.dumps(
                     item,
@@ -293,7 +409,10 @@ for name, items in knowledge_map.items():
                 )
             )
 
+
             f.write("\n")
+
+
 
 
 
@@ -313,6 +432,26 @@ with open(
 
 
 
+
+
+with open(
+    INDEX_PATH + "/dependency.json",
+    "w",
+    encoding="utf8"
+) as f:
+
+
+    json.dump(
+        dependencies,
+        f,
+        indent=2,
+        ensure_ascii=False
+    )
+
+
+
+
+
 with open(
     INDEX_PATH + "/metadata.json",
     "w",
@@ -323,12 +462,17 @@ with open(
     json.dump(
         {
             "artifact_count": len(artifacts),
-            "generated_by": "AHI Repository Indexer"
+
+            "dependency_count": len(dependencies),
+
+            "generated_by": "AHI Repository Indexer V3"
+
         },
         f,
-        indent=2
+        indent=2,
+        ensure_ascii=False
     )
 
 
 
-print("Done")
+print("AHI Repository Indexer V3 Done")
