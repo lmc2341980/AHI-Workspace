@@ -1,8 +1,13 @@
 id: AHI-SAMPLE-ARTIFACT-0001
+
 name: AHI Sample Artifact
+
 type: Artifact
+
 status: Proposal
+
 version: 0.1.0
+
 owner: AHI-LeMinhCong
 
 parent:
