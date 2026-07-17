@@ -15,3 +15,4 @@ Folder: `10_ARCHITECTURE`
 - 📄 002_AHI-P_O_G_MODEL.md
 - 📄 003_DUAL_CORE_KNOWLEDGE.md
 - 📄 001_AHI-OS.m
+- 📄 AHI-WS-Thiet-Ke-Kien-Truc (1).md
