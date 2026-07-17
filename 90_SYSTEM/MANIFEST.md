@@ -5,5 +5,6 @@ Folder: `90_SYSTEM`
 ## Contents
 
 - 📁 AHI-CHATGPT
+- 📁 AHI-SPEC
 - 📁 AHI-METADATA
 - 📁 AHI-ARTIFACT-FACTORY

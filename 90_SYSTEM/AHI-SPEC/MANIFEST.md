@@ -1,0 +1,7 @@
+# MANIFEST
+
+Folder: `90_SYSTEM/AHI-SPEC`
+
+## Contents
+
+- 📄 008_AHI_LOADER_SPECIFICATION.md
