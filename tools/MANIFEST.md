@@ -6,3 +6,4 @@ Folder: `tools`
 
 - 📄 knowledge-loader.py
 - 📄 indexer.py
+- 📄 context-builder.py
