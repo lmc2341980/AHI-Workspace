@@ -1,9 +1,8 @@
-repository.json
-        +
-artifact.json
-        +
-dependency.json
-        +
-knowledge_graph.json
-        +
-search_index.json
+{
+  "repository": "repository.json",
+  "artifacts": "artifact.json",
+  "dependencies": "dependency.json",
+  "knowledge_graph": "knowledge_graph.json",
+  "search_index": "search_index.json",
+  "generated_by": "AHI Repository Indexer V6"
+}
