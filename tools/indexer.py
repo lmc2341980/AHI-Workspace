@@ -583,4 +583,35 @@ with open(
         indent=2,
         ensure_ascii=False
     )
-print("AHI Repository Indexer V5 Done")
+    # Create Knowledge Package
+
+knowledge_package = {
+
+    "repository": "repository.json",
+
+    "artifacts": "artifact.json",
+
+    "dependencies": "dependency.json",
+
+    "knowledge_graph": "knowledge_graph.json",
+
+    "search_index": "search_index.json",
+
+    "generated_by": "AHI Repository Indexer V6"
+
+}
+
+
+with open(
+    INDEX_PATH + "/knowledge_package.json",
+    "w",
+    encoding="utf8"
+) as f:
+
+    json.dump(
+        knowledge_package,
+        f,
+        indent=2,
+        ensure_ascii=False
+    )
+print("AHI Repository Indexer V6 Done")
