@@ -1,0 +1,43 @@
+name: AHI Knowledge Loader
+
+on:
+  push:
+    branches:
+      - main
+
+  workflow_dispatch:
+
+jobs:
+
+  knowledge-loader:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Run Repository Indexer
+        run: |
+          python tools/indexer.py
+
+      - name: Run Knowledge Loader
+        run: |
+          python tools/knowledge-loader.py
+
+      - name: Commit Generated Index
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+
+          git add 90_SYSTEM/AHI-INDEX
+
+          git diff --cached --quiet || git commit -m "Auto update AHI Knowledge Package"
+
+          git push
