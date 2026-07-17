@@ -473,6 +473,66 @@ with open(
         ensure_ascii=False
     )
 
+# Create Knowledge Graph
+
+nodes = []
+
+edges = []
 
 
-print("AHI Repository Indexer V3 Done")
+for artifact in artifacts:
+
+    nodes.append(
+        {
+            "id": artifact.get("id"),
+            "name": artifact.get("name"),
+            "type": artifact.get("type")
+        }
+    )
+
+
+for item in dependencies:
+
+    source = item.get("id")
+
+
+    for target in item.get("dependencies", []):
+
+        edges.append(
+            {
+                "from": source,
+                "relation": "depends_on",
+                "to": target
+            }
+        )
+
+
+    for target in item.get("parent", []):
+
+        edges.append(
+            {
+                "from": source,
+                "relation": "inherits",
+                "to": target
+            }
+        )
+
+
+
+with open(
+    INDEX_PATH + "/knowledge_graph.json",
+    "w",
+    encoding="utf8"
+) as f:
+
+    json.dump(
+        {
+            "nodes": nodes,
+            "edges": edges
+        },
+        f,
+        indent=2,
+        ensure_ascii=False
+    )
+
+print("AHI Repository Indexer V4 Done")
