@@ -1,0 +1,7 @@
+# MANIFEST
+
+Folder: `90_SYSTEM/AHI-METADATA/EXAMPLES`
+
+## Contents
+
+- 📄 AHI_SAMPLE_ARTIFACT.md
