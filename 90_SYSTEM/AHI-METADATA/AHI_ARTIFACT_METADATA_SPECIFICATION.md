@@ -1,55 +1,50 @@
-# AHI Artifact Metadata Specification
-
-## Status
-
-Proposal
-
-## Purpose
-
-Define a common metadata standard for all AHI Artifacts.
-
-The metadata allows humans and AI systems to understand:
-
-* Artifact identity
-* Artifact type
-* Lifecycle status
-* Version
-* Ownership
-* Dependencies
-* Evolution history
-
-## Metadata Location
-
-Metadata is defined at the beginning of each Artifact file using YAML Front Matter.
-
-Example:
-
-```yaml
----
-id: AHI-ARTIFACT-0001
-
-name: AHI Artifact Name
-
-type: Artifact
-
+id: AHI-METADATA-SPEC-0001
+name: AHI Artifact Metadata Specification
+type: Specification
 status: Proposal
-
 version: 0.1.0
-
+owner: AHI-LeMinhCong
 created: 2026-07-17
-
 updated: 2026-07-17
-
-owner: AHI
 
 parent:
 
 dependencies:
 
 tags:
+  - AHI
+  - Metadata
+  - Artifact
+---
+
+# AHI Artifact Metadata Specification
+
+## Purpose
+
+Define the metadata standard for AHI Artifacts.
+
+Metadata provides a common structure so humans and AI systems can understand, manage, inherit, and evolve AHI Artifacts.
 
 ---
-```
+
+# Metadata Concept
+
+Each AHI Artifact should contain metadata at the beginning of the Markdown file.
+
+Metadata acts as the identity information of an Artifact.
+
+Example:
+
+```yaml
+---
+id: AHI-ARTIFACT-0001
+name: Example Artifact
+type: Artifact
+status: Proposal
+version: 0.1.0
+owner: AHI-LeMinhComg
+---
+````
 
 ---
 
@@ -59,23 +54,33 @@ tags:
 
 Unique identifier of the Artifact.
 
+Purpose:
+
+* Identify the Artifact.
+* Allow AI systems to reference the exact Artifact.
+* Preserve identity during evolution.
+
+Rules:
+
+* Must be unique.
+* Must not be reused.
+* Should remain unchanged during updates.
+
 Example:
 
 ```yaml
 id: AHI-CHATGPT-IDENTITY-0001
 ```
 
-Rules:
-
-* Must be unique.
-* Never reused.
-* Used by AI systems for reference.
-
 ---
 
 ## name
 
 Human-readable Artifact name.
+
+Purpose:
+
+* Allow humans to understand the Artifact.
 
 Example:
 
@@ -87,62 +92,96 @@ name: AHI-CHATGPT Identity
 
 ## type
 
-Defines Artifact category.
+Defines the Artifact category.
 
-Allowed initial values:
+Purpose:
+
+* Allow AI systems to understand the role of the Artifact.
+
+Initial supported types:
+
+```text
+Constitution
+Specification
+Skill
+Workflow
+Artifact
+Knowledge
+Identity
+```
+
+Example:
 
 ```yaml
-type:
-- Constitution
-- Specification
-- Skill
-- Workflow
-- Artifact
-- Knowledge
-- Identity
+type: Specification
 ```
 
 ---
 
 ## status
 
-Defines lifecycle state.
+Defines the lifecycle state of the Artifact.
 
-Allowed values:
+Purpose:
+
+* Prevent AI from treating unfinished ideas as official knowledge.
+
+Lifecycle:
+
+```text
+Proposal
+    ↓
+Discussing
+    ↓
+Approved
+    ↓
+Artifact
+    ↓
+Implemented
+    ↓
+Deprecated
+```
+
+Example:
 
 ```yaml
-status:
-- Proposal
-- Discussing
-- Approved
-- Artifact
-- Implemented
-- Deprecated
+status: Proposal
 ```
 
 ---
 
 ## version
 
-Semantic version.
+Defines Artifact version.
 
 Format:
 
-```
+```text
 Major.Minor.Patch
 ```
 
 Example:
 
 ```yaml
-version: 1.0.0
+version: 0.1.0
 ```
+
+Meaning:
+
+* Major: major architectural change.
+* Minor: new capability or extension.
+* Patch: correction or small improvement.
 
 ---
 
 ## owner
 
-Human or organization responsible for ownership.
+Defines the responsible owner of the Artifact.
+
+Purpose:
+
+* Preserve human ownership.
+* Identify who has final decision authority.
 
 Example:
 
@@ -156,93 +195,75 @@ owner: AHI-LeMinhCong
 
 ## parent
 
-Defines inheritance source.
+Defines inheritance relationship.
 
 Example:
 
 ```yaml
 parent:
-
-- AHI-FOUNDATION-0001
+  - AHI-FOUNDATION-0001
 ```
 
 ---
 
 ## dependencies
 
-Defines required Artifacts.
+Defines required related Artifacts.
 
 Example:
 
 ```yaml
 dependencies:
-
-- AHI-SPEC-0001
-- AHI-SKILL-0001
+  - AHI-SPEC-0001
 ```
 
 ---
 
 ## tags
 
-Used for search and AI retrieval.
+Defines search keywords.
 
 Example:
 
 ```yaml
 tags:
-
-- AHI
-- Memory
-- AI
-```
-
----
-
-## Evolution History
-
-Optional evolution tracking.
-
-Example:
-
-```yaml
-history:
-
-- version: 0.1.0
-  date: 2026-07-17
-  change: Initial proposal
+  - AI
+  - Memory
+  - Knowledge
 ```
 
 ---
 
 # AI Processing Rules
 
-AI systems should:
+AI systems working with AHI Artifacts should:
 
 1. Read metadata before content.
-2. Respect status lifecycle.
+2. Respect Artifact status.
 3. Never treat Proposal as final knowledge.
-4. Follow dependencies before modification.
-5. Preserve artifact identity during evolution.
+4. Preserve Artifact identity.
+5. Follow inheritance and dependency relationships.
+6. Support continuous evolution.
 
 ---
 
-# Repository Index Integration
+# Repository Integration
 
-AHI Repository Indexer will later extract:
+AHI Repository Indexer will extract metadata fields:
 
 * id
+* name
 * type
 * status
 * version
+* owner
+* parent
 * dependencies
 * tags
 
-and generate:
+and generate machine-readable indexes:
 
-```
-90_SYSTEM/AHI-INDEX/
-
+```text
 artifact.json
 
 metadata.json
@@ -254,18 +275,24 @@ dependency.json
 
 # Design Principle
 
-One Meaning - Many Representations
+## One Meaning - Many Representations
 
 Human representation:
 
+```text
 Markdown Artifact
+```
 
 Machine representation:
 
-JSON Metadata Index
+```text
+JSON Metadata
+```
 
 AI representation:
 
+```text
 Knowledge Graph
+```
 
-All representations must refer to the same Artifact identity.
+All representations must preserve the same Artifact identity.
