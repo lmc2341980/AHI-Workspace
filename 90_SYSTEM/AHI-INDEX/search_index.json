@@ -1,0 +1,12 @@
+[
+  {
+    "id": "AHI-SAMPLE-ARTIFACT-0001",
+    "type": "Artifact",
+    "keywords": [
+      "AHI",
+      "Example",
+      "Metadata"
+    ],
+    "path": "90_SYSTEM/AHI-METADATA/EXAMPLES/AHI_SAMPLE_ARTIFACT.md"
+  }
+]
