@@ -1,1 +1,25 @@
-Đang cập nhật
+Generation
+
+↓
+
+Version
+
+↓
+
+Approved
+
+↓
+
+Commit
+
+↓
+
+Reason
+
+↓
+
+Inheritance
+
+↓
+
+Evolution
