@@ -1051,31 +1051,3 @@ Next evolution:
 
 
 ```
-
-
-
-010_AHI_PROTOCOL_ARCHITECTURE.md
-
-
-
-```
-
-```
-
-
-
-Anh chỉ cần:
-
-
-
-1. Copy Commit Message → GitHub Commit Message.
-
-2. Copy File Path → chọn đúng file.
-
-3. Copy toàn bộ khối markdown → Replace nội dung file.
-
-4. Commit.
-
-
-
-Đây là đúng quy trình **Copy First – Artifact First** của AHI.
