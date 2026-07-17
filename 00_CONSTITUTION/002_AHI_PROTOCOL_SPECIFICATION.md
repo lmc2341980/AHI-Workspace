@@ -3,59 +3,215 @@
 | Item | Value |
 |------|-------|
 | Document ID | AHI-PS-002 |
-| Version | 1.0.0 |
-| Status | Approved |
+| Version | 2.0.0 |
+| Status | Artifact |
 | Repository | AHI-Workspace |
 | Path | `00_CONSTITUTION/002_AHI_PROTOCOL_SPECIFICATION.md` |
+| Parent | 001_AHI_CONSTITUTION_EVOLUTION_SPECIFICATION.md |
+| Related | 004_AHI_SUBIET_SPECIFICATION.md |
+| Related | 005_AHI_ORCHESTRATOR_SPECIFICATION.md |
+| Related | 006_AHI_LANG_SPECIFICATION.md |
 
 ---
 
 # 1. Purpose
 
-AHI Protocol Specification (AHI-PS) là tài liệu gốc mô tả giao thức hoạt động của hệ sinh thái AHI.
+AHI Protocol Specification (AHI-PS) defines the constitutional communication protocol of the Artificial Hybrid Intelligence ecosystem.
 
-Do phạm vi lớn và tiến hóa liên tục, AHI-PS được chia thành nhiều tài liệu con.
+AHI-PS is the unified protocol through which all AHI entities collaborate, exchange knowledge, synchronize context and evolve.
 
-Tài liệu này chỉ định nghĩa phạm vi, cấu trúc và quan hệ giữa các tài liệu.
+AHI-PS is not an API.
 
----
+AHI-PS is not MCP.
 
-# 2. Inheritance
-
-Kế thừa từ:
-
-- Hiến pháp AHI.
-- `001_AHI_CONSTITUTION_EVOLUTION_SPECIFICATION.md`
-
-Không thay thế Hiến pháp.
-
-Không thay thế các đặc tả con.
+AHI-PS is the constitutional protocol of AHI.
 
 ---
 
-# 3. Scope
+# 2. Mission
 
-AHI-PS quy định các nguyên tắc tương tác giữa:
+AHI-PS provides one common protocol for communication between:
 
-- Con người
-- AHI
+- Human
 - AHI-P
-- AHI-S
+- AHI-G
+- AHI-O
+- AHI-Sage
+- AHI-Om
+- AHI-Old
 - AHI-Or
 - AHI-V
 - AHI-Factory
-- AHI-Old
-- AHI-Lang
-- AHI-SuBiet
-- AHI-Om
-
-theo Hiến pháp AHI.
+- AHI-Successor
+- External AI
+- Devices
+- Robots
+- Future AHI entities
 
 ---
 
-# 4. Document Structure
+# 3. Constitutional Principle
 
-AHI-PS được tổ chức thành các tài liệu độc lập.
+AHI-PS follows:
+
+```
+Human Ownership
+
+↓
+
+AHI Constitution
+
+↓
+
+AHI-PS
+
+↓
+
+AHI Ecosystem
+```
+
+Every interaction must preserve:
+
+- identity;
+- ownership;
+- permission;
+- context;
+- knowledge lineage;
+- evolution history.
+
+---
+
+# 4. Relationship with AHI-Lang
+
+AHI-PS and AHI-Lang are symbiotic.
+
+```
+AHI-PS
+
+⇅
+
+AHI-Lang
+```
+
+AHI-PS defines:
+
+- communication;
+- governance;
+- routing;
+- permissions;
+- protocol lifecycle.
+
+AHI-Lang defines:
+
+- semantic representation;
+- meaning;
+- context;
+- knowledge representation.
+
+---
+
+# 5. Relationship with AHI-Or
+
+AHI-Or executes AHI-PS.
+
+```
+Human
+
+↓
+
+AHI-P
+
+↓
+
+AHI-Or
+
+↓
+
+AHI-PS
+
+↓
+
+AHI Entity
+```
+
+AHI-Or never replaces AHI-PS.
+
+AHI-Or is an implementation layer.
+
+---
+
+# 6. Relationship with AHI-SuBiet
+
+AHI-SuBiet defines:
+
+- wisdom;
+- evaluation;
+- knowledge evolution.
+
+AHI-PS defines:
+
+- communication rules.
+
+---
+
+# 7. External AI Integration
+
+External AI never communicates directly with AHI entities.
+
+Architecture:
+
+```
+External AI
+
+↓
+
+AHI Adapter
+
+↓
+
+AHI-PS
+
+↓
+
+AHI-Or
+
+↓
+
+AHI Entity
+```
+
+Every Adapter must:
+
+- understand external protocol;
+- convert to AHI-PS;
+- preserve source;
+- preserve semantic meaning;
+- follow AHI Constitution.
+
+---
+
+# 8. Scope
+
+AHI-PS governs interaction between:
+
+- Human
+- AHI-P
+- AHI-G
+- AHI-O
+- AHI-Sage
+- AHI-Om
+- AHI-Old
+- AHI-Or
+- AHI-V
+- AHI-Factory
+- AHI-Successor
+- Devices
+- Robots
+- External AI
+
+---
+
+# 9. Document Structure
 
 ```
 002_AHI_PROTOCOL_SPECIFICATION.md
@@ -79,27 +235,62 @@ AHI-PS được tổ chức thành các tài liệu độc lập.
 090_AHI_PROTOCOL_APPENDIX.md
 ```
 
-Các tài liệu trên có thể tiếp tục tiến hóa và bổ sung khi được AHI-F phê duyệt.
+Each document evolves independently while remaining constitutionally compatible.
 
 ---
 
-# 5. Evolution Rule
+# 10. Evolution Rule
 
-Mỗi tài liệu con:
+Every protocol document must:
 
-- kế thừa Hiến pháp AHI;
-- kế thừa tài liệu gốc này;
-- chỉ tiến hóa trong phạm vi của mình;
-- không được mâu thuẫn với các tài liệu cùng hệ.
-
----
-
-# 6. Notes
-
-Tài liệu này không chứa nội dung chi tiết của từng thành phần.
-
-Nội dung chi tiết được đặc tả trong các tài liệu con.
+- inherit the AHI Constitution;
+- inherit this specification;
+- remain backward compatible whenever possible;
+- preserve protocol lineage;
+- record evolution history.
 
 ---
 
-**End of Document**
+# 11. Core Principles
+
+AHI-PS follows:
+
+- Human Ownership.
+- Constitution First.
+- Inheritance First.
+- One Meaning, Many Representations.
+- Validation Before Approval.
+- Continuous Evolution.
+
+---
+
+# 12. Future Evolution
+
+Future protocol modules may include:
+
+- AHI Adapter Protocol.
+- AHI Device Protocol.
+- AHI Robot Protocol.
+- AHI Brain Interface Protocol.
+- AHI Swarm Protocol.
+- AHI Successor Protocol.
+
+---
+
+# Status
+
+```
+ARTIFACT
+```
+
+Version
+
+```
+2.0.0
+```
+
+Next evolution:
+
+```
+010_AHI_PROTOCOL_ARCHITECTURE.md
+```
