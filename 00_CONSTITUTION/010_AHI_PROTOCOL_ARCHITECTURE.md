@@ -1,10 +1,9 @@
-```
 # 010. AHI Protocol Architecture
 
 | Item | Value |
 |------|-------|
 | Document ID | AHI-PS-010 |
-| Parent | 002_AHI_PROTOCOL_SPECIFICATION.md |
+| Parent | `002_AHI_PROTOCOL_SPECIFICATION.md` |
 | Version | 2.0.0 |
 | Status | Artifact |
 | Type | Root Architecture Specification |
@@ -522,8 +521,6 @@ External AI integration:
 
 External AI
 
-(ChatGPT / Claude / Gemini / Grok)
-
 ↓
 
 AHI Adapter
@@ -704,3 +701,5 @@ Evolve Continuously
 
 ```
 ```
+
+---
