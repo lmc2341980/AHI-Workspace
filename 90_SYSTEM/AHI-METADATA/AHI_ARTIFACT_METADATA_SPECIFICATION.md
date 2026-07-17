@@ -1,10 +1,18 @@
+---
 id: AHI-METADATA-SPEC-0001
+
 name: AHI Artifact Metadata Specification
+
 type: Specification
+
 status: Proposal
+
 version: 0.1.0
+
 owner: AHI-LeMinhCong
+
 created: 2026-07-17
+
 updated: 2026-07-17
 
 parent:
