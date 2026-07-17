@@ -1,3 +1,4 @@
+---
 id: AHI-SAMPLE-ARTIFACT-0001
 
 name: AHI Sample Artifact
