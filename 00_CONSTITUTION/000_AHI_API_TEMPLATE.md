@@ -10,11 +10,32 @@
 | Related | 000_AHI_RUNTIME_TEMPLATE.md |
 | Related | 000_AHI_SKILL_TEMPLATE.md |
 | Related | 000_AHI_SPECIFICATION_TEMPLATE.md |
-
+| Related | 007_AHI_SERVICE_PROTOCOL_SPECIFICATION.md |
 ---
 
 # 1. Purpose
+# Relationship with AHI-SP
 
+AHI API is an implementation interface of AHI-SP.
+
+Relationship:
+AHI-SP
+
+↓
+
+AHI API
+
+↓
+
+Runtime
+
+↓
+
+Execution
+
+AHI-SP defines service meaning and contract.
+
+AHI API defines service access interface.
 This template defines the standard structure for every API Artifact in the AHI ecosystem.
 
 An API exposes standardized capabilities that allow Humans, AHI entities, external systems and devices to communicate through the AHI Protocol.
