@@ -134,12 +134,163 @@ Chi tiết của từng thành phần sẽ được đặc tả trong các tài 
 
 ---
 
-# 6. Notes
+---
 
-Tài liệu này chỉ mô tả kiến trúc tổng thể.
+# 6. Architecture Layers
 
-Các giao thức, thuật toán và quy trình chi tiết được đặc tả trong các tài liệu con của AHI-PS.
+AHI Protocol Architecture is organized into logical layers.
+
+```
+Human Layer
+
+↓
+
+Identity Layer
+
+↓
+
+Protocol Layer (AHI-PS)
+
+↓
+
+Orchestration Layer (AHI-Or)
+
+↓
+
+Semantic Layer (AHI-Lang)
+
+↓
+
+Knowledge Layer (AHI-SuBiet)
+
+↓
+
+Validation Layer (AHI-V)
+
+↓
+
+Execution Layer
+
+↓
+
+Infrastructure Layer
+```
+
+Each layer has a single primary responsibility while collaborating with adjacent layers.
 
 ---
 
-**End of Document**
+# 7. Interaction Flow
+
+A typical interaction follows the architecture below.
+
+```
+Human
+
+↓
+
+AHI-P
+
+↓
+
+AHI-Or
+
+↓
+
+AHI-PS
+
+↓
+
+AHI-Lang
+
+↓
+
+AHI Entity
+
+↓
+
+AHI-V
+
+↓
+
+Knowledge Evolution
+
+↓
+
+Human
+```
+
+Every interaction shall preserve:
+
+- identity;
+- ownership;
+- semantic consistency;
+- governance;
+- evolution history.
+
+---
+
+# 8. Dependency Model
+
+The architectural dependency is defined as:
+
+```
+AHI Constitution
+
+↓
+
+AHI Protocol Specification
+
+↓
+
+AHI Protocol Architecture
+
+↓
+
+AHI Component Specifications
+
+↓
+
+Runtime
+
+↓
+
+Implementation
+```
+
+Higher layers define principles.
+
+Lower layers implement them.
+
+No implementation may violate its parent specification.
+
+---
+
+# 9. Architectural Constraints
+
+Every AHI component shall:
+
+- inherit from the Constitution;
+- communicate through AHI-PS;
+- preserve semantic compatibility with AHI-Lang;
+- support orchestration by AHI-Or;
+- be verifiable by AHI-V;
+- support continuous evolution.
+
+Direct communication outside the protocol architecture should be avoided.
+
+---
+
+# 10. Future Evolution
+
+Future versions of the architecture may introduce:
+
+- Distributed Orchestration
+- Multi-Agent Collaboration
+- Digital Twin Architecture
+- Edge Intelligence
+- Swarm Intelligence
+- Cross-Repository Federation
+- AHI-Successor Runtime Integration
+
+All future extensions shall preserve architectural compatibility.
