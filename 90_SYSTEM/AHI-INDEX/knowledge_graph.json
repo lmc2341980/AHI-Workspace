@@ -2,19 +2,14 @@
   "nodes": [
     {
       "id": "AHI-METADATA-SPEC-0001",
+      "name": "AHI Artifact Metadata Specification",
       "type": "Specification"
     },
     {
       "id": "AHI-SAMPLE-ARTIFACT-0001",
+      "name": "AHI Sample Artifact",
       "type": "Artifact"
     }
   ],
-
-  "edges": [
-    {
-      "from": "AHI-SAMPLE-ARTIFACT-0001",
-      "relation": "depends_on",
-      "to": "AHI-METADATA-SPEC-0001"
-    }
-  ]
+  "edges": []
 }
