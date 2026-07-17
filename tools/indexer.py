@@ -64,3 +64,10 @@ with open("90_SYSTEM/AHI-INDEX/repository.json","w",encoding="utf8") as f:
     },f,indent=2)
 
 print("Done")
+with open("90_SYSTEM/AHI-INDEX/tree.txt","w",encoding="utf8") as f:
+
+    for folder in folders:
+        f.write(folder+"\n")
+
+    for file in files:
+        f.write(file+"\n")
