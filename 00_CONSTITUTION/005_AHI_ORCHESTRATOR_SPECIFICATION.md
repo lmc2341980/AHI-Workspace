@@ -10,7 +10,7 @@
 | Related | 002_AHI_PROTOCOL_SPECIFICATION.md |
 | Related | 004_AHI_SUBIET_SPECIFICATION.md |
 | Related | 006_AHI_LANG_SPECIFICATION.md |
-
+| Related | 007_AHI_SERVICE_PROTOCOL_SPECIFICATION.md |
 ---
 
 # 1. Purpose
@@ -35,8 +35,8 @@ AHI-Or is an intelligent coordination layer operating under:
 - AHI Constitution;
 - AHI Protocol (AHI-PS);
 - AHI-SuBiet;
-- AHI-Lang.
-
+- AHI-Lang;
+- AHI Service Protocol (AHI-SP).
 ---
 
 # 2. Core Principle
