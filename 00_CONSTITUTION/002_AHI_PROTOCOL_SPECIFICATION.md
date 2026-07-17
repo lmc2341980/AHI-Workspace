@@ -294,3 +294,171 @@ Next evolution:
 ```
 010_AHI_PROTOCOL_ARCHITECTURE.md
 ```
+---
+
+# 13. Responsibilities
+
+AHI-PS defines the constitutional communication protocol of the AHI ecosystem.
+
+| Responsibility | Description |
+|---|---|
+| Communication | Define how entities exchange information. |
+| Identity | Preserve identity consistency during interaction. |
+| Permission | Define authorization and access boundaries. |
+| Context | Synchronize execution and collaboration context. |
+| Governance | Enforce Constitution and protocol compliance. |
+| Evolution | Preserve protocol lineage and compatibility. |
+
+AHI-PS defines communication rules.
+
+AHI-PS does not execute communication.
+
+---
+
+# 14. Protocol Lifecycle
+
+Every interaction follows a common lifecycle.
+
+```
+Request
+
+↓
+
+Identity Verification
+
+↓
+
+Permission Verification
+
+↓
+
+Context Synchronization
+
+↓
+
+Semantic Interpretation
+
+↓
+
+Routing
+
+↓
+
+Execution
+
+↓
+
+Validation
+
+↓
+
+Response
+
+↓
+
+Knowledge Evolution
+```
+
+The lifecycle may be extended without breaking protocol compatibility.
+
+---
+
+# 15. Inputs and Outputs
+
+## Inputs
+
+AHI-PS accepts:
+
+- Human Requests
+- Entity Requests
+- Events
+- Context
+- Semantic Representation
+- External Adapter Messages
+
+## Outputs
+
+AHI-PS produces:
+
+- Standardized Protocol Messages
+- Routing Instructions
+- Permission Decisions
+- Context Updates
+- Validation Requests
+- Execution Requests
+
+---
+
+# 16. Protocol Boundary
+
+AHI-PS defines protocol behavior only.
+
+AHI-PS does not:
+
+- execute workflows;
+- perform orchestration;
+- validate knowledge;
+- interpret semantic meaning;
+- store memory.
+
+These responsibilities belong to:
+
+- AHI-Or
+- AHI-Lang
+- AHI-V
+- AHI Memory
+
+---
+
+# 17. Compliance
+
+Every implementation of AHI-PS shall comply with:
+
+- AHI Constitution
+- Human Ownership
+- Identity Integrity
+- Context Integrity
+- Semantic Compatibility
+- Governance Consistency
+- Backward Compatibility
+
+---
+
+# 18. Future Evolution Strategy
+
+Future versions of AHI-PS shall evolve through:
+
+```
+Constitution
+
+↓
+
+Protocol Specification
+
+↓
+
+Protocol Architecture
+
+↓
+
+Runtime
+
+↓
+
+Implementation
+
+↓
+
+Validation
+
+↓
+
+Evolution
+```
+
+Every evolution must:
+
+- preserve inheritance;
+- preserve compatibility;
+- preserve traceability;
+- preserve governance.
