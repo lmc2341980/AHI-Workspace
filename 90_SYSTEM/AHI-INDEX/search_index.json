@@ -1,8 +1,20 @@
 [
   {
+    "id": "AHI-METADATA-SPEC-0001",
+    "type": "Specification",
+    "keywords": [
+      "AHI Artifact Metadata Specification",
+      "AHI",
+      "Metadata",
+      "Artifact"
+    ],
+    "path": "90_SYSTEM/AHI-METADATA/AHI_ARTIFACT_METADATA_SPECIFICATION.md"
+  },
+  {
     "id": "AHI-SAMPLE-ARTIFACT-0001",
     "type": "Artifact",
     "keywords": [
+      "AHI Sample Artifact",
       "AHI",
       "Example",
       "Metadata"
