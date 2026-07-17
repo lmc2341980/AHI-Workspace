@@ -71,3 +71,6 @@ with open("90_SYSTEM/AHI-INDEX/tree.txt","w",encoding="utf8") as f:
 
     for file in files:
         f.write(file+"\n")
+        with open("90_SYSTEM/AHI-INDEX/files.json","w",encoding="utf8") as f:
+
+    json.dump(files,f,indent=2)
