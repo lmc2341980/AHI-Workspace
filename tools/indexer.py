@@ -17,8 +17,19 @@ folders = []
 files = []
 
 knowledge_map = {}
+artifacts = []
 
-os.makedirs("90_SYSTEM/AHI-INDEX/knowledge", exist_ok=True)
+INDEX_PATH = "90_SYSTEM/AHI-INDEX"
+
+os.makedirs(
+    INDEX_PATH,
+    exist_ok=True
+)
+
+os.makedirs(
+    INDEX_PATH + "/knowledge",
+    exist_ok=True
+)
 
 
 def safe_name(path):
@@ -35,6 +46,55 @@ def safe_name(path):
     )
 
 
+def read_metadata(content):
+
+    if not content.startswith("---"):
+        return None
+
+    try:
+
+        end = content.find(
+            "---",
+            3
+        )
+
+        if end == -1:
+            return None
+
+
+        yaml_text = content[3:end]
+
+
+        metadata = {}
+
+
+        for line in yaml_text.splitlines():
+
+            if ":" in line:
+
+                key, value = line.split(
+                    ":",
+                    1
+                )
+
+                key = key.strip()
+                value = value.strip()
+
+
+                if value:
+
+                    metadata[key] = value
+
+
+        return metadata
+
+
+    except Exception:
+
+        return None
+
+
+
 for path, dirs, fs in os.walk(ROOT):
 
     dirs[:] = [
@@ -42,15 +102,20 @@ for path, dirs, fs in os.walk(ROOT):
         if d not in IGNORE
     ]
 
-    rel = os.path.relpath(path, ROOT)
+    rel = os.path.relpath(
+        path,
+        ROOT
+    )
 
     folders.append(rel)
 
-    manifest = []
 
     folder_key = safe_name(rel)
 
     knowledge_map[folder_key] = []
+
+
+    manifest = []
 
 
     for d in dirs:
@@ -61,6 +126,7 @@ for path, dirs, fs in os.walk(ROOT):
 
 
     for file in fs:
+
 
         if file == "MANIFEST.md":
             continue
@@ -83,10 +149,13 @@ for path, dirs, fs in os.walk(ROOT):
         )
 
 
-        files.append(rel_path)
+        files.append(
+            rel_path
+        )
 
 
         if file.lower().endswith(".md"):
+
 
             try:
 
@@ -105,6 +174,20 @@ for path, dirs, fs in os.walk(ROOT):
                         "content": content
                     }
                 )
+
+
+                metadata = read_metadata(
+                    content
+                )
+
+
+                if metadata:
+
+                    metadata["path"] = rel_path
+
+                    artifacts.append(
+                        metadata
+                    )
 
 
             except Exception:
@@ -142,11 +225,10 @@ for path, dirs, fs in os.walk(ROOT):
 
 
 with open(
-    "90_SYSTEM/AHI-INDEX/repository.json",
+    INDEX_PATH + "/repository.json",
     "w",
     encoding="utf8"
 ) as f:
-
 
     json.dump(
         {
@@ -160,33 +242,10 @@ with open(
 
 
 with open(
-    "90_SYSTEM/AHI-INDEX/tree.txt",
+    INDEX_PATH + "/files.json",
     "w",
     encoding="utf8"
 ) as f:
-
-
-    for folder in folders:
-
-        f.write(
-            folder + "\n"
-        )
-
-
-    for file in files:
-
-        f.write(
-            file + "\n"
-        )
-
-
-
-with open(
-    "90_SYSTEM/AHI-INDEX/files.json",
-    "w",
-    encoding="utf8"
-) as f:
-
 
     json.dump(
         files,
@@ -196,25 +255,30 @@ with open(
 
 
 
-knowledge_path = (
-    "90_SYSTEM/AHI-INDEX/knowledge"
-)
+with open(
+    INDEX_PATH + "/tree.txt",
+    "w",
+    encoding="utf8"
+) as f:
+
+
+    for item in folders:
+        f.write(item + "\n")
+
+    for item in files:
+        f.write(item + "\n")
+
 
 
 for name, items in knowledge_map.items():
 
-    if len(items) == 0:
+
+    if not items:
         continue
 
 
-    filename = os.path.join(
-        knowledge_path,
-        name + ".jsonl"
-    )
-
-
     with open(
-        filename,
+        INDEX_PATH + "/knowledge/" + name + ".jsonl",
         "w",
         encoding="utf8"
     ) as f:
@@ -230,6 +294,40 @@ for name, items in knowledge_map.items():
             )
 
             f.write("\n")
+
+
+
+with open(
+    INDEX_PATH + "/artifact.json",
+    "w",
+    encoding="utf8"
+) as f:
+
+
+    json.dump(
+        artifacts,
+        f,
+        indent=2,
+        ensure_ascii=False
+    )
+
+
+
+with open(
+    INDEX_PATH + "/metadata.json",
+    "w",
+    encoding="utf8"
+) as f:
+
+
+    json.dump(
+        {
+            "artifact_count": len(artifacts),
+            "generated_by": "AHI Repository Indexer"
+        },
+        f,
+        indent=2
+    )
 
 
 
