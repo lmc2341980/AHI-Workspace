@@ -575,3 +575,135 @@ Preserve Knowledge
 
 Evolve Intelligence
 ```
+---
+
+# 18. Responsibilities
+
+AHI-Lang is responsible for semantic representation across the AHI ecosystem.
+
+| Responsibility | Description |
+|---|---|
+| Meaning Representation | Represent concepts with preserved semantics. |
+| Semantic Interoperability | Enable different entities to share the same meaning. |
+| Context Representation | Represent execution and interaction context. |
+| Identity Representation | Provide unified identity semantics. |
+| Knowledge Representation | Represent structured and evolving knowledge. |
+| Memory Representation | Represent memory in semantic form. |
+| Skill Representation | Provide executable semantic descriptions for Skills. |
+| Evolution Support | Preserve semantic continuity during evolution. |
+
+AHI-Lang is responsible for representation, not execution.
+
+---
+
+# 19. Inputs and Outputs
+
+## Inputs
+
+AHI-Lang accepts semantic information from:
+
+- Natural Language
+- Structured Data
+- Images
+- Audio
+- Video
+- Sensors
+- Computer Vision
+- External AI Adapters
+- AHI Entities
+
+## Outputs
+
+AHI-Lang produces:
+
+- Semantic Representation
+- Entity Representation
+- Context Representation
+- Knowledge Representation
+- Memory Representation
+- Skill Representation
+
+These outputs are consumed by AHI-PS, AHI-Or and other AHI components.
+
+---
+
+# 20. Semantic Processing Pipeline
+
+```
+Observation
+
+↓
+
+Normalization
+
+↓
+
+Semantic Representation
+
+↓
+
+Context Association
+
+↓
+
+Knowledge Mapping
+
+↓
+
+Memory Association
+
+↓
+
+Skill Association
+
+↓
+
+Decision Support
+```
+
+Each stage preserves semantic integrity.
+
+---
+
+# 21. Representation Boundary
+
+AHI-Lang provides semantic representation only.
+
+AHI-Lang does not:
+
+- execute workflows;
+- perform orchestration;
+- validate knowledge;
+- enforce governance;
+- store permanent memory.
+
+These responsibilities belong to other AHI components.
+
+---
+
+# 22. Compliance
+
+Every semantic representation shall comply with:
+
+- AHI Constitution
+- AHI Protocol (AHI-PS)
+- Human Ownership
+- Identity Integrity
+- Context Integrity
+- Semantic Consistency
+- Backward Compatibility
+
+---
+
+# 23. Future Evolution
+
+Future versions may extend AHI-Lang with:
+
+- Semantic Reasoning Layer
+- Multilingual Semantic Compiler
+- Universal Device Representation
+- Autonomous Semantic Optimization
+- Cross-AHI Semantic Federation
+- Successor Semantic Synchronization
+
+All future extensions must preserve semantic compatibility with previous versions.
