@@ -8,6 +8,7 @@
 | Parent | 002_AHI_PROTOCOL_SPECIFICATION.md |
 | Related | 004_AHI_SUBIET_SPECIFICATION.md |
 | Related | 005_AHI_ORCHESTRATOR_SPECIFICATION.md |
+| Related | 007_AHI_SERVICE_PROTOCOL_SPECIFICATION.md |
 | Type | Root Specification |
 
 ---
@@ -126,6 +127,14 @@ AHI-Lang defines:
 - Skill.
 - Reality representation.
 
+AHI-Lang provides semantic foundation for AHI-SP services.
+
+AHI-Lang describes:
+
+- service meaning;
+- service context;
+- service capability;
+- service semantic contract.
 ---
 
 # 5. AHI-Lang Semantic Architecture
