@@ -438,3 +438,149 @@ Inherit First
 Validate Always
 Evolve Continuously
 ```
+---
+
+# 14. Responsibilities
+
+AHI-Or is responsible for ecosystem orchestration only.
+
+| Responsibility | Description |
+|---|---|
+| Coordination | Coordinate interactions between AHI entities. |
+| Routing | Route requests, context and knowledge to the correct entity. |
+| Context Synchronization | Maintain execution context consistency. |
+| Workflow Orchestration | Execute AHI workflows according to the Constitution. |
+| Governance Enforcement | Enforce Constitution, AHI-PS and governance rules. |
+| Evolution Coordination | Coordinate the evolution lifecycle of knowledge and artifacts. |
+
+AHI-Or does not replace domain intelligence.
+
+---
+
+# 15. Inputs and Outputs
+
+## Inputs
+
+AHI-Or may receive:
+
+- Requests
+- Events
+- Context
+- Artifacts
+- Skills
+- Knowledge
+- Human Decisions
+- External Adapter Messages
+
+## Outputs
+
+AHI-Or may produce:
+
+- Routing Decisions
+- Execution Plans
+- Workflow Instructions
+- Context Updates
+- Validation Requests
+- Evolution Requests
+- Governance Decisions
+
+---
+
+# 16. Runtime State Model
+
+AHI-Or follows a logical orchestration lifecycle.
+
+```
+Idle
+
+↓
+
+Receiving
+
+↓
+
+Context Loading
+
+↓
+
+Routing
+
+↓
+
+Coordinating
+
+↓
+
+Waiting
+
+↓
+
+Validating
+
+↓
+
+Completed
+```
+
+The runtime model may evolve without changing the orchestration principles.
+
+---
+
+# 17. Event Model
+
+AHI-Or coordinates ecosystem events.
+
+Typical events include:
+
+- ArtifactCreated
+- ArtifactUpdated
+- SkillRequested
+- SkillExecuted
+- KnowledgeMerged
+- ValidationRequested
+- ValidationCompleted
+- HumanDecisionReceived
+- EvolutionStarted
+- EvolutionCompleted
+
+Event definitions are specified by AHI-PS.
+
+---
+
+# 18. Orchestration Boundary
+
+AHI-Or coordinates the ecosystem but does not perform domain-specific processing.
+
+AHI-Or does not:
+
+- replace Human decision making;
+- validate knowledge (AHI-V);
+- permanently store memory (Memory subsystem);
+- generate domain knowledge;
+- replace execution engines.
+
+Its responsibility is orchestration.
+
+---
+
+# 19. Future Evolution
+
+Future versions may extend AHI-Or with:
+
+- Event Bus
+- Workflow Engine
+- Distributed Orchestration
+- Multi-Agent Scheduling
+- Digital Twin Coordination
+- AHI-Successor Runtime Coordination
+
+All future extensions must preserve:
+
+- Constitution compatibility;
+- backward compatibility;
+- inheritance;
+- governance consistency.
+
+---
+
+# 20. Status
