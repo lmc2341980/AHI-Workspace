@@ -534,5 +534,53 @@ with open(
         indent=2,
         ensure_ascii=False
     )
+# Create AI Search Index
 
-print("AHI Repository Indexer V4 Done")
+search_index = []
+
+
+for artifact in artifacts:
+
+    keywords = []
+
+
+    if artifact.get("name"):
+        keywords.append(
+            artifact.get("name")
+        )
+
+
+    if artifact.get("tags"):
+
+        keywords.extend(
+            artifact.get("tags")
+        )
+
+
+    search_index.append(
+        {
+            "id": artifact.get("id"),
+
+            "type": artifact.get("type"),
+
+            "keywords": keywords,
+
+            "path": artifact.get("path")
+        }
+    )
+
+
+
+with open(
+    INDEX_PATH + "/search_index.json",
+    "w",
+    encoding="utf8"
+) as f:
+
+    json.dump(
+        search_index,
+        f,
+        indent=2,
+        ensure_ascii=False
+    )
+print("AHI Repository Indexer V5 Done")
