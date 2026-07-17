@@ -1,0 +1,8 @@
+# MANIFEST
+
+Folder: `90_SYSTEM/AHI-CHATGPT`
+
+## Contents
+
+- 📁 CHAT
+- 📁 EVOLUTION_MEMORY

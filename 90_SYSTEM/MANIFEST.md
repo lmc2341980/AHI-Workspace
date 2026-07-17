@@ -1,0 +1,8 @@
+# MANIFEST
+
+Folder: `90_SYSTEM`
+
+## Contents
+
+- 📁 AHI-CHATGPT
+- 📁 AHI-ARTIFACT-FACTORY

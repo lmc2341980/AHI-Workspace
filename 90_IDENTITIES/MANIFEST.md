@@ -1,0 +1,8 @@
+# MANIFEST
+
+Folder: `90_IDENTITIES`
+
+## Contents
+
+- 📁 AHI-CHATGPT
+- 📁  AHI-CHATGPT

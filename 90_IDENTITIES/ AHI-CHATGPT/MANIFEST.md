@@ -1,0 +1,7 @@
+# MANIFEST
+
+Folder: `90_IDENTITIES/ AHI-CHATGPT`
+
+## Contents
+
+- 📁  SKILLS

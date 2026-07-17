@@ -1,0 +1,9 @@
+# MANIFEST
+
+Folder: `docs`
+
+## Contents
+
+- 📁 010_ARCHITECTURE
+- 📁 000_FOUNDATION
+- 📁 003_RUNTIME_SPECIFICATION
