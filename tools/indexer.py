@@ -15,6 +15,10 @@ IGNORE = {
 folders = []
 files = []
 
+os.makedirs("90_SYSTEM/AHI-INDEX", exist_ok=True)
+
+knowledge = []
+
 for path, dirs, fs in os.walk(ROOT):
 
     dirs[:] = [d for d in dirs if d not in IGNORE]
@@ -33,9 +37,28 @@ for path, dirs, fs in os.walk(ROOT):
         if f == "MANIFEST.md":
             continue
 
+        full_path = os.path.join(path, f)
+        rel_path = os.path.join(rel, f)
+
         manifest.append(f"- 📄 {f}")
 
-        files.append(os.path.join(rel, f))
+        files.append(rel_path)
+
+        if f.lower().endswith(".md"):
+
+            try:
+
+                with open(full_path, "r", encoding="utf8") as md:
+
+                    content = md.read()
+
+                knowledge.append({
+                    "path": rel_path,
+                    "content": content
+                })
+
+            except Exception:
+                pass
 
     with open(os.path.join(path, "MANIFEST.md"), "w", encoding="utf8") as out:
 
@@ -43,8 +66,6 @@ for path, dirs, fs in os.walk(ROOT):
         out.write(f"Folder: `{rel}`\n\n")
         out.write("## Contents\n\n")
         out.write("\n".join(manifest))
-
-os.makedirs("90_SYSTEM/AHI-INDEX", exist_ok=True)
 
 with open("90_SYSTEM/AHI-INDEX/repository.json", "w", encoding="utf8") as f:
 
@@ -70,5 +91,11 @@ with open("90_SYSTEM/AHI-INDEX/tree.txt", "w", encoding="utf8") as f:
 with open("90_SYSTEM/AHI-INDEX/files.json", "w", encoding="utf8") as f:
 
     json.dump(files, f, indent=2)
+
+with open("90_SYSTEM/AHI-INDEX/knowledge.jsonl", "w", encoding="utf8") as f:
+
+    for item in knowledge:
+        f.write(json.dumps(item, ensure_ascii=False))
+        f.write("\n")
 
 print("Done")
