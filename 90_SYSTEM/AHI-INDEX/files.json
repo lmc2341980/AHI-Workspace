@@ -75,6 +75,7 @@
   "tools/knowledge-loader.py",
   "tools/indexer.py",
   "tools/context-builder.py",
+  "20_APPLICATIONS/AHI-NetZeroLoop-Spec.md",
   "10_ARCHITECTURE/06_DATA_PIPELINE.md",
   "10_ARCHITECTURE/000_AHI-WORKSPACE_ARCHITECTURE.md",
   "10_ARCHITECTURE/README.md",
