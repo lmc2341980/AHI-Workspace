@@ -11,5 +11,6 @@ Folder: `90_SYSTEM/AHI-CHATGPT/CHAT`
 - 📄 README.md
 - 📄 002-TT-KienTruc-HeSinhThai.md
 - 📄 007-TT-KienTruc-HeSinhThai.md
+- 📄 009-TT-KienTruc-HeSinhThai.md
 - 📄 006-TT-KienTruc-HeSinhThai.md
 - 📄 001-TT-KienTruc-HeSinhThai.md
