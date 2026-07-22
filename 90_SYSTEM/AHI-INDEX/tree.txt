@@ -104,6 +104,7 @@ tools/indexer.py
 tools/context-builder.py
 20_APPLICATIONS/AHI-Applications-Marketing-Packages.md
 20_APPLICATIONS/AHI-NetZeroLoop-Spec.md
+10_ARCHITECTURE/AHI_Nguyen_Ly_Nen_Tang.md
 10_ARCHITECTURE/06_DATA_PIPELINE.md
 10_ARCHITECTURE/000_AHI-WORKSPACE_ARCHITECTURE.md
 10_ARCHITECTURE/README.md
