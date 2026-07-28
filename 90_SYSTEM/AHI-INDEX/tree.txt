@@ -9,6 +9,7 @@
 20_APPLICATIONS
 10_ARCHITECTURE
 tools
+tools/openbolt
 docs
 docs/003_RUNTIME_SPECIFICATION
 docs/000_FOUNDATION
@@ -114,6 +115,7 @@ docs/010_ARCHITECTURE
 tools/knowledge-loader.py
 tools/indexer.py
 tools/context-builder.py
+tools/openbolt/Dockerfile.txt
 docs/003_RUNTIME_SPECIFICATION/044_AHI-SEMANTIC-OBJECT-SPECIFICATION.md
 docs/003_RUNTIME_SPECIFICATION/047_AHI-WORKFLOW-API.md
 docs/003_RUNTIME_SPECIFICATION/055_AHI-MEMORY-API.md
