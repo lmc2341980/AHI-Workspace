@@ -4,7 +4,7 @@ Folder: `90_SYSTEM`
 
 ## Contents
 
+- 📁 AHI-METADATA
 - 📁 AHI-CHATGPT
 - 📁 AHI-SPEC
-- 📁 AHI-METADATA
 - 📁 AHI-ARTIFACT-FACTORY

@@ -4,6 +4,6 @@ Folder: `90_SYSTEM/AHI-CHATGPT`
 
 ## Contents
 
-- 📁 DBRS-G
 - 📁 CHAT
 - 📁 EVOLUTION_MEMORY
+- 📁 DBRS-G
