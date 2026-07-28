@@ -1,0 +1,33 @@
+name: "AHI-Factory OpenCode Executor"
+
+on:
+  repository_dispatch:
+    types: [trigger_knowledge_evolution]
+
+jobs:
+  evolve_knowledge:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Tạo nhánh tiến hóa tri thức mới
+        run: |
+          git config --global user.name "ahi-factory-bot"
+          git config --global user.email "ahi-factory@internal.workspace"
+          git checkout -b fix/knowledge-evolution-${{ github.run_id }}
+
+      - name: Ghi đè file định nghĩa cấu trúc mới (OpenCode Execution)
+        run: |
+          echo '${{ github.event.client_payload.file_content }}' > ./definitions/schema.md
+
+      - name: Push và mở Pull Request trực tuyến
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_FINE_GRAINED_TOKEN_2 }}
+          commit-message: "ahi-factory: cập nhật và đồng bộ nhất quán cấu trúc tri thức hệ thống"
+          title: "🤖 [AHI-Evolution] Khắc phục mâu thuẫn định nghĩa tự động"
+          body: |
+            Hệ thống **AHI-V** phát hiện mâu thuẫn tài liệu.
+            **AHI-Factory (OpenBolt)** đã tự động sinh cấu trúc chuẩn hóa thay thế.
+          branch: fix/knowledge-evolution-${{ github.run_id }}
