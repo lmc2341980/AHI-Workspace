@@ -16,9 +16,9 @@
 
 ### 1. Sự thật lịch sử: Tính chất đặc thù & Nghệ thuật sử dụng Nguồn lực Tư nhân trong Tư tưởng Hồ Chí Minh
 
-Trong lịch sử kinh tế chính trị thế giới, lý luận Mác - Lênin nguyên bản nhấn mạnh việc xóa bỏ sở hữu tư nhân về tư liệu sản xuất. Tuy nhiên, khi Chủ tịch Hồ Chí Minh vận dụng vào Việt Nam — một nước thuộc địa nửa phong kiến, ngân khố trống rỗng, lực lượng sản xuất yếu kém — Ngài đã sáng tạo ra một **đường lối kinh tế chính trị vô cùng linh hoạt, thực tiễn và mang tính bao trùm cao**.
+Trong lịch sử kinh tế chính trị thế giới, lý luận Mác - Lênin nguyên bản nhấn mạnh việc xóa bỏ sở hữu tư nhân về tư liệu sản xuất. Tuy nhiên, khi Chủ tịch Hồ Chí Minh vận dụng vào Việt Nam — một nước thuộc địa nửa phong kiến, ngân khố trống rỗng, lực lượng sản xuất yếu kém — Bác đã sáng tạo ra một **đường lối kinh tế chính trị vô cùng linh hoạt, thực tiễn và mang tính bao trùm cao**.
 
-Thực chất, xuyên suốt chiều dài lịch sử từ năm 1930 đến nay, **Tư tưởng Hồ Chí Minh chưa bao giờ triệt hạ hay phủ nhận vai trò của tư sản yêu nước và kinh tế tư nhân**. Ngược lại, Ngài coi tầng lớp công thương, tư sản dân tộc là một bộ phận không thể tách rời của Khối Đại đoàn kết Dân tộc, đóng vai trò cứu cánh tài chính - hậu thuẫn sinh tử cho vận mệnh quốc gia trong những thời khắc nguy biến nhất.
+Thực chất, xuyên suốt chiều dài lịch sử từ năm 1930 đến nay, **Tư tưởng Hồ Chí Minh chưa bao giờ triệt hạ hay phủ nhận vai trò của tư sản yêu nước và kinh tế tư nhân**. Ngược lại, Bác coi tầng lớp công thương, tư sản dân tộc là một bộ phận không thể tách rời của Khối Đại đoàn kết Dân tộc, đóng vai trò cứu cánh tài chính - hậu thuẫn sinh tử cho vận mệnh quốc gia trong những thời khắc nguy biến nhất.
 
 ---
 
@@ -36,7 +36,7 @@ Triết học Lê Minh hệ thống lại toàn bộ thực tiễn đóng góp c
 
 Sau Cách mạng Tháng Tám 1945, Chính phủ Lâm thời đứng trước tình thế *"Ngàn cân treo sợi tóc"*: Ngân khố quốc gia chỉ còn vỏn vẹn **1,2 triệu đồng Đông Dương** (đa phần rách nát không tiêu được), phía Bắc có 20 vạn quân Tưởng Giới Thạch tràn vào, phía Nam quân Pháp nổ súng quay lại xâm lược.
 
-* **Cách làm đỉnh cao của Hồ Chủ tịch:** Ngài không dùng biện pháp tịch thu tài sản hay áp đặt cแนว, mà phát động **Quỹ Độc Lập** và **Tuần lễ Vàng (17 - 24/9/1945)** dựa trên lòng yêu nước tự nguyện.
+* **Cách làm đỉnh cao của Hồ Chủ tịch:** Bác không dùng biện pháp tịch thu tài sản hay áp đặt cแนว, mà phát động **Quỹ Độc Lập** và **Tuần lễ Vàng (17 - 24/9/1945)** dựa trên lòng yêu nước tự nguyện.
 * **Biểu tượng Hiến tặng — Gia đình Trịnh Văn Bô - Hoàng Thị Minh Hồ:**
 * Hiến tặng tổng cộng **5.147 lượng vàng** (tương đương 90% ngân khố vàng của Chính phủ thời điểm đó) cùng hàng trăm vạn đồng Đông Dương.
 * Hiến căn nhà **48 Hàng Ngang** — nơi Chủ tịch Hồ Chí Minh soạn thảo bản *Tuyên ngôn Độc lập* lịch sử.
