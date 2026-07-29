@@ -40,7 +40,7 @@ Triết học Lê Minh hệ thống lại toàn bộ thực tiễn đóng góp c
 
 Sau Cách mạng Tháng Tám 1945, Chính phủ Lâm thời đứng trước tình thế *"Ngàn cân treo sợi tóc"*: Ngân khố quốc gia chỉ còn vỏn vẹn **1,2 triệu đồng Đông Dương** (đa phần rách nát không tiêu được), phía Bắc có 20 vạn quân Tưởng Giới Thạch tràn vào, phía Nam quân Pháp nổ súng quay lại xâm lược.
 
-* **Cách làm đỉnh cao của Hồ Chủ tịch:** Bác không dùng biện pháp tịch thu tài sản hay áp đặt cแนว, mà phát động **Quỹ Độc Lập** và **Tuần lễ Vàng (17 - 24/9/1945)** dựa trên lòng yêu nước tự nguyện.
+* **Cách làm đỉnh cao của Hồ Chủ tịch:** Bác không dùng biện pháp tịch thu tài sản hay áp đặt, mà phát động **Quỹ Độc Lập** và **Tuần lễ Vàng (17 - 24/9/1945)** dựa trên lòng yêu nước tự nguyện.
 * **Biểu tượng Hiến tặng — Gia đình Trịnh Văn Bô - Hoàng Thị Minh Hồ:**
 * Hiến tặng tổng cộng **5.147 lượng vàng** (tương đương 90% ngân khố vàng của Chính phủ thời điểm đó) cùng hàng trăm vạn đồng Đông Dương.
 * Hiến căn nhà **48 Hàng Ngang** — nơi Chủ tịch Hồ Chí Minh soạn thảo bản *Tuyên ngôn Độc lập* lịch sử.
