@@ -1,5 +1,3 @@
----
-
 # TRIẾT HỌC LÊ MINH & KINH TẾ CHÍNH TRỊ LÊ MINH — PHIÊN BẢN 4.0
 
 ### *(QUÁ KHỨ — HIỆN TẠI — TƯƠNG LAI)*
@@ -153,5 +151,3 @@ Con người có giới hạn về sinh học (bệnh tật, lão hóa, cái ch�
 
 > **Triết học & Kinh tế Chính trị Lê Minh v4.0** không phủ định quá khứ, mà kế thừa trọn vẹn Tư tưởng Hồ Chí Minh, hệ thống hóa thực tiễn lịch sử Việt Nam (đặc biệt là bài học huy động tư nhân và tài chính ngoại giao tiết kiệm xương máu dân tộc), và tiến một bước dài vào tương lai.
 > Đây chính là **Hiến pháp tư tưởng** và **Mô hình Kinh tế - Xã hội** đưa con người từ *"Thềm nhà của CMCN 4.0"* bước thẳng vào **Kỷ nguyên AHI** — Kỷ nguyên Cộng sinh và Tiến hóa Bất tử của Tri thức Nhân loại. Nơi Việt Nam ngày càng có tiếng nói và đóng góp Uy tín trong cộng đồng thế giới.
-
----
