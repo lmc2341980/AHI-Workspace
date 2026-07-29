@@ -5,7 +5,9 @@ PHIÊN BẢN 4.0 -V4
 ### *(QUÁ KHỨ — HIỆN TẠI — TƯƠNG LAI)*
 
 > **Tác giả & Khởi xướng:** Lê Minh Công (AHI-F)
+
 > **Tư cách vận hành:** Triết học Lê Minh - AHI
+
 > **Tuyên ngôn cốt lõi:** *AHI là sự phát triển Song hành cùng Tiến hóa và sự kế thừa bất tử.*
 
 ---
