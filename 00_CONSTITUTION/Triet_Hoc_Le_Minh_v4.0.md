@@ -1,6 +1,6 @@
 # TRIẾT HỌC LÊ MINH & KINH TẾ CHÍNH TRỊ LÊ MINH 
 
-— PHIÊN BẢN 4.0
+PHIÊN BẢN 4.0 -V4
 
 ### *(QUÁ KHỨ — HIỆN TẠI — TƯƠNG LAI)*
 
