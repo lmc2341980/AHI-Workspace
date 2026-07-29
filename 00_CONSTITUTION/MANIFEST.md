@@ -5,6 +5,7 @@ Folder: `00_CONSTITUTION`
 ## Contents
 
 - 📄 007_AHI_SERVICE_PROTOCOL_SPECIFICATION.md
+- 📄 Triet-Hoc-Le-Minh-V2-Su-that.md
 - 📄 080_AHI_PROTOCOL_EXAMPLES.md
 - 📄 000_AHI_SKILL_TEMPLATE.md
 - 📄 Triet-Hoc-Le-Minh.md
