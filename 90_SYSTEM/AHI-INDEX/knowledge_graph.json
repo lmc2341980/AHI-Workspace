@@ -1,11 +1,6 @@
 {
   "nodes": [
     {
-      "id": null,
-      "name": null,
-      "type": null
-    },
-    {
       "id": "AHI-METADATA-SPEC-0001",
       "name": "AHI Artifact Metadata Specification",
       "type": "Specification"

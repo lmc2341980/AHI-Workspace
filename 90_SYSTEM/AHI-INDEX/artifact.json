@@ -1,11 +1,5 @@
 [
   {
-    "> **Tác giả & Khởi xướng": "** Lê Minh Công (AHI-F)",
-    "> **Tư cách vận hành": "** Triết học Lê Minh - AHI",
-    "> **Tuyên ngôn cốt lõi": "** *AHI là sự phát triển Song hành cùng Tiến hóa và sự kế thừa bất tử.*",
-    "path": "00_CONSTITUTION/Triet_Hoc_Le_Minh_v4.0.md"
-  },
-  {
     "id": "AHI-METADATA-SPEC-0001",
     "name": "AHI Artifact Metadata Specification",
     "type": "Specification",
