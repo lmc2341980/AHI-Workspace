@@ -15,8 +15,8 @@ Folder: `docs/000_FOUNDATION`
 - 📄 AHI-F-CG.md
 - 📄 007_AHI-EVOLUTION-ALWAYS.md
 - 📄 AHI-GLOSSARY.md
+- 📄 AHI-Infinite-Context.md
 - 📄 004_AHI-KNOWLEDGE-FIRST.md
-- 📄 AHI DOC: Create AHI Infinite Context
 - 📄 AHI-DOCUMENT-STANDARD.md
 - 📄 005_AHI-DOCUMENTATION-FIRST.md
 - 📄 AHI-COMMIT-STANDARD.md
